@@ -19,6 +19,8 @@
 		BC6E3A3727F9FA0D00D7FEF2 /* LREdgeCutShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3627F9FA0C00D7FEF2 /* LREdgeCutShapeView.swift */; };
 		BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3827F9FA2900D7FEF2 /* LineShape.swift */; };
 		BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3E27FA003800D7FEF2 /* FlightDetailInfoVIew.swift */; };
+		BC88F9E227FA04AB0009F79F /* FlightListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88F9E127FA04AB0009F79F /* FlightListRowView.swift */; };
+		BC88F9E427FA05630009F79F /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88F9E327FA05630009F79F /* SearchResultView.swift */; };
 		BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */; };
 		BCD8636D27F8C8060010403F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636C27F8C8060010403F /* ContentView.swift */; };
 		BCD8636F27F8C8080010403F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8636E27F8C8080010403F /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		BC6E3A3627F9FA0C00D7FEF2 /* LREdgeCutShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LREdgeCutShapeView.swift; sourceTree = "<group>"; };
 		BC6E3A3827F9FA2900D7FEF2 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 		BC6E3A3E27FA003800D7FEF2 /* FlightDetailInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailInfoVIew.swift; sourceTree = "<group>"; };
+		BC88F9E127FA04AB0009F79F /* FlightListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListRowView.swift; sourceTree = "<group>"; };
+		BC88F9E327FA05630009F79F /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		BCD8636727F8C8060010403F /* FinalProjectSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectSwiftUIApp.swift; sourceTree = "<group>"; };
 		BCD8636C27F8C8060010403F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,15 @@
 			path = MapView;
 			sourceTree = "<group>";
 		};
+		BC88F9E027FA048C0009F79F /* FilghtList */ = {
+			isa = PBXGroup;
+			children = (
+				BC88F9E127FA04AB0009F79F /* FlightListRowView.swift */,
+				BC88F9E327FA05630009F79F /* SearchResultView.swift */,
+			);
+			path = FilghtList;
+			sourceTree = "<group>";
+		};
 		BCD8635E27F8C8060010403F = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +143,7 @@
 		BCD8636927F8C8060010403F /* FinalProjectSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC88F9E027FA048C0009F79F /* FilghtList */,
 				BC6E3A3D27F9FAD200D7FEF2 /* MapView */,
 				BC6E3A3C27F9FAA700D7FEF2 /* LoginView */,
 				BC6E3A3B27F9FA7C00D7FEF2 /* Model */,
@@ -234,9 +248,11 @@
 				BC6E3A3727F9FA0D00D7FEF2 /* LREdgeCutShapeView.swift in Sources */,
 				BCD8636D27F8C8060010403F /* ContentView.swift in Sources */,
 				BC6E3A3127F9F45800D7FEF2 /* RoundedCorner.swift in Sources */,
+				BC88F9E427FA05630009F79F /* SearchResultView.swift in Sources */,
 				FD5DD8A127F9E23D007A7F43 /* myButton.swift in Sources */,
 				FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */,
 				BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */,
+				BC88F9E227FA04AB0009F79F /* FlightListRowView.swift in Sources */,
 				BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */,
 				BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,

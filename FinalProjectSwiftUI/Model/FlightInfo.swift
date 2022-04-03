@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct FlightInfo: Decodable {
+struct FlightInfo: Decodable, Hashable {
     let flightType: FlightType
     let departure: String
     let departureCode: String
@@ -56,7 +56,7 @@ struct FlightInfo: Decodable {
     }
 }
 
-enum FlightType: String, Decodable, CaseIterable {
+enum FlightType: String, Decodable, CaseIterable, Hashable {
     case international = "International"
     case domestic = "Domestic"
     
