@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */; };
+		BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */; };
+		BC6E3A2827F934D800D7FEF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2727F934D800D7FEF2 /* MapView.swift */; };
+		BC6E3A2A27F9357C00D7FEF2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2927F9357C00D7FEF2 /* Location.swift */; };
 		BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */; };
 		BCD8636D27F8C8060010403F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636C27F8C8060010403F /* ContentView.swift */; };
 		BCD8636F27F8C8080010403F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8636E27F8C8080010403F /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmitLoginView.swift; sourceTree = "<group>"; };
+		BC6E3A2727F934D800D7FEF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		BC6E3A2927F9357C00D7FEF2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		BCD8636727F8C8060010403F /* FinalProjectSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectSwiftUIApp.swift; sourceTree = "<group>"; };
 		BCD8636C27F8C8060010403F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +63,10 @@
 			children = (
 				BCD8636C27F8C8060010403F /* ContentView.swift */,
 				BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */,
+				BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */,
+				BC6E3A2727F934D800D7FEF2 /* MapView.swift */,
+				BC6E3A2927F9357C00D7FEF2 /* Location.swift */,
+				BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */,
 				FDACB57A27F8EC1F00772169 /* personalUser.swift */,
 				BCD8636E27F8C8080010403F /* Assets.xcassets */,
 				BCD8637027F8C8080010403F /* Preview Content */,
@@ -140,9 +152,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */,
+				BC6E3A2827F934D800D7FEF2 /* MapView.swift in Sources */,
 				BCD8636D27F8C8060010403F /* ContentView.swift in Sources */,
 				FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */,
+				BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,
+				BC6E3A2A27F9357C00D7FEF2 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

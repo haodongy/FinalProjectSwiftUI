@@ -74,6 +74,7 @@ struct personalUser_Previews: PreviewProvider {
         personalUser()
     }
 }
+
 struct CheckboxStyle: ToggleStyle {
 
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -97,6 +98,8 @@ struct CheckboxStyle: ToggleStyle {
 
     }
 }
+
+
 prefix func ! (value: Binding<Bool>) -> Binding<Bool> {
     Binding<Bool>(
         get: { !value.wrappedValue },
