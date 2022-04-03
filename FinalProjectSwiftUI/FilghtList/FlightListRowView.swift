@@ -55,7 +55,7 @@ struct FlightListRowView: View {
 }
 
 
-struct TicketListFooterView: View {
+struct TicketListDifferentView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(FlightType.allCases, id: \.self) { type in
