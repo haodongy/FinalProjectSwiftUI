@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        FlightDetailView(flightInfo: sampleFlightData[0])
+        //FlightDetailView(flightInfo: sampleFlightData[0])
+        FlightSearch()
     }
 }
 
