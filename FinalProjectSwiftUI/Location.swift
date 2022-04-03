@@ -12,5 +12,5 @@ struct Location: Identifiable, Codable, Equatable {
     var name: String
     var description: String
     let latitude: Double
-    let longitude: Double
+    var longitude: Double
 }
