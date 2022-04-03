@@ -13,7 +13,7 @@ struct SearchResultView: View {
     var body: some View {
         NavigationView {
             List {
-                TicketListFooterView()
+                TicketListDifferentView()
                 Section {
                     ForEach(flightList, id: \.self) { flightInfo in
                         NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
