@@ -18,11 +18,11 @@
 		BC6E3A3527F9F8A600D7FEF2 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3427F9F8A600D7FEF2 /* FlightDetailView.swift */; };
 		BC6E3A3727F9FA0D00D7FEF2 /* LREdgeCutShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3627F9FA0C00D7FEF2 /* LREdgeCutShapeView.swift */; };
 		BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3827F9FA2900D7FEF2 /* LineShape.swift */; };
+		BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A3E27FA003800D7FEF2 /* FlightDetailInfoVIew.swift */; };
 		BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */; };
 		BCD8636D27F8C8060010403F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636C27F8C8060010403F /* ContentView.swift */; };
 		BCD8636F27F8C8080010403F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8636E27F8C8080010403F /* Assets.xcassets */; };
 		BCD8637227F8C8080010403F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8637127F8C8080010403F /* Preview Assets.xcassets */; };
-		FD26CB5C27F9EAAD0048621A /* FlightDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CB5B27F9EAAD0048621A /* FlightDetailInfoView.swift */; };
 		FD5DD89F27F9D665007A7F43 /* FlightSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD89E27F9D665007A7F43 /* FlightSearch.swift */; };
 		FD5DD8A127F9E23D007A7F43 /* myButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD8A027F9E23D007A7F43 /* myButton.swift */; };
 		FD5DD8A327F9E342007A7F43 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD8A227F9E342007A7F43 /* SearchResult.swift */; };
@@ -41,12 +41,12 @@
 		BC6E3A3427F9F8A600D7FEF2 /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		BC6E3A3627F9FA0C00D7FEF2 /* LREdgeCutShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LREdgeCutShapeView.swift; sourceTree = "<group>"; };
 		BC6E3A3827F9FA2900D7FEF2 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		BC6E3A3E27FA003800D7FEF2 /* FlightDetailInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailInfoVIew.swift; sourceTree = "<group>"; };
 		BCD8636727F8C8060010403F /* FinalProjectSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectSwiftUIApp.swift; sourceTree = "<group>"; };
 		BCD8636C27F8C8060010403F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCD8636E27F8C8080010403F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD8637127F8C8080010403F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FD26CB5B27F9EAAD0048621A /* FlightDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailInfoView.swift; sourceTree = "<group>"; };
 		FD5DD89E27F9D665007A7F43 /* FlightSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearch.swift; sourceTree = "<group>"; };
 		FD5DD8A027F9E23D007A7F43 /* myButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myButton.swift; sourceTree = "<group>"; };
 		FD5DD8A227F9E342007A7F43 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
@@ -78,9 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				BC6E3A3427F9F8A600D7FEF2 /* FlightDetailView.swift */,
-				FD26CB5B27F9EAAD0048621A /* FlightDetailInfoView.swift */,
 				BC6E3A3227F9F75700D7FEF2 /* BlockView.swift */,
 				BC6E3A2D27F9F3A700D7FEF2 /* FlightDetailTopView.swift */,
+				BC6E3A3E27FA003800D7FEF2 /* FlightDetailInfoVIew.swift */,
 			);
 			path = FlightDetail;
 			sourceTree = "<group>";
@@ -138,15 +138,11 @@
 				BCD8636C27F8C8060010403F /* ContentView.swift */,
 				BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */,
 				FDACB57A27F8EC1F00772169 /* personalUser.swift */,
+				BCD8636E27F8C8080010403F /* Assets.xcassets */,
+				BCD8637027F8C8080010403F /* Preview Content */,
 				FD5DD89E27F9D665007A7F43 /* FlightSearch.swift */,
 				FD5DD8A027F9E23D007A7F43 /* myButton.swift */,
 				FD5DD8A227F9E342007A7F43 /* SearchResult.swift */,
-				BCD8636E27F8C8080010403F /* Assets.xcassets */,
-				BCD8637027F8C8080010403F /* Preview Content */,
-				FD5DD89E27F9D665007A7F43 /* flightSearch.swift */,
-				FD5DD8A027F9E23D007A7F43 /* myButton.swift */,
-				FD5DD8A227F9E342007A7F43 /* searchResult.swift */,
-				FD26CB5B27F9EAAD0048621A /* flightDetail.swift */,
 			);
 			path = FinalProjectSwiftUI;
 			sourceTree = "<group>";
@@ -239,10 +235,10 @@
 				BCD8636D27F8C8060010403F /* ContentView.swift in Sources */,
 				BC6E3A3127F9F45800D7FEF2 /* RoundedCorner.swift in Sources */,
 				FD5DD8A127F9E23D007A7F43 /* myButton.swift in Sources */,
-				FD26CB5C27F9EAAD0048621A /* FlightDetailInfoView.swift in Sources */,
 				FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */,
 				BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */,
 				BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */,
+				BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,
 				BC6E3A3527F9F8A600D7FEF2 /* FlightDetailView.swift in Sources */,
 				BC6E3A2A27F9357C00D7FEF2 /* Location.swift in Sources */,

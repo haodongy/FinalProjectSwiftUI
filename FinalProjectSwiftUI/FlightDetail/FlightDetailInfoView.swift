@@ -1,10 +1,3 @@
-//
-//  flightDetail.swift
-//  FinalProjectSwiftUI
-//
-//  Created by Sitao Wang on 4/3/22.
-//
-
 import SwiftUI
 
 struct FlightDetailInfoView: View {
