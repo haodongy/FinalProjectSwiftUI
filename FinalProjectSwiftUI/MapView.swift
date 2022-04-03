@@ -11,9 +11,13 @@ import MapKit
 struct MapView: View {
     
     
-    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
+    @State private var mapRegion = MKCoordinateRegion()
     
     @State private var locations = [Location]()
+    
+    @State var airportLocation: Location
+    
+
     
     var body: some View {
         ZStack {
@@ -21,6 +25,9 @@ struct MapView: View {
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
             }
             .ignoresSafeArea()
+            .onAppear{
+                setRegion(airportLocation)
+            }
 
             Circle()
                 .fill(.blue)
@@ -35,6 +42,7 @@ struct MapView: View {
                     Button {
                         let newLocation = Location(id: UUID(), name: "New location", description: "", latitude: mapRegion.center.latitude, longitude: mapRegion.center.longitude)
                         locations.append(newLocation)
+                        print(newLocation)
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -48,10 +56,21 @@ struct MapView: View {
             }
         }
     }
+    
+    private func setRegion(_ airportLocation: Location) {
+            mapRegion = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: airportLocation.latitude, longitude: airportLocation.longitude),
+                span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
+            )
+        }
 }
+
+
+
+
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
+        MapView(airportLocation: Location(id: UUID(), name: "test", description: "test", latitude: 40.64, longitude: -73.78))
     }
 }
