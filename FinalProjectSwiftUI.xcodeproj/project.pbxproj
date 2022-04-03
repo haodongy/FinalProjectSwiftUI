@@ -143,6 +143,10 @@
 				FD5DD8A227F9E342007A7F43 /* SearchResult.swift */,
 				BCD8636E27F8C8080010403F /* Assets.xcassets */,
 				BCD8637027F8C8080010403F /* Preview Content */,
+				FD5DD89E27F9D665007A7F43 /* flightSearch.swift */,
+				FD5DD8A027F9E23D007A7F43 /* myButton.swift */,
+				FD5DD8A227F9E342007A7F43 /* searchResult.swift */,
+				FD26CB5B27F9EAAD0048621A /* flightDetail.swift */,
 			);
 			path = FinalProjectSwiftUI;
 			sourceTree = "<group>";
