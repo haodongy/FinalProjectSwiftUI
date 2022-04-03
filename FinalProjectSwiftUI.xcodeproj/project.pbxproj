@@ -11,6 +11,7 @@
 		BCD8636D27F8C8060010403F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636C27F8C8060010403F /* ContentView.swift */; };
 		BCD8636F27F8C8080010403F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8636E27F8C8080010403F /* Assets.xcassets */; };
 		BCD8637227F8C8080010403F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8637127F8C8080010403F /* Preview Assets.xcassets */; };
+		FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDACB57A27F8EC1F00772169 /* personalUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		BCD8636C27F8C8060010403F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCD8636E27F8C8080010403F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD8637127F8C8080010403F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDACB57A27F8EC1F00772169 /* personalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +53,9 @@
 		BCD8636927F8C8060010403F /* FinalProjectSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */,
 				BCD8636C27F8C8060010403F /* ContentView.swift */,
+				BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */,
+				FDACB57A27F8EC1F00772169 /* personalUser.swift */,
 				BCD8636E27F8C8080010403F /* Assets.xcassets */,
 				BCD8637027F8C8080010403F /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCD8636D27F8C8060010403F /* ContentView.swift in Sources */,
+				FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +271,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FinalProjectSwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = LM3QGAMF25;
+				DEVELOPMENT_TEAM = 8524RW3L94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -275,12 +279,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Haodong.FinalProjectSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = wst.FinalProjectSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -296,7 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FinalProjectSwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = LM3QGAMF25;
+				DEVELOPMENT_TEAM = 8524RW3L94;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -304,12 +309,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Haodong.FinalProjectSwiftUI;
+				PRODUCT_BUNDLE_IDENTIFIER = wst.FinalProjectSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
