@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC3290C52801D4300039842A /* DataBase Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3290C42801D4300039842A /* DataBase Connection.swift */; };
+		BC3290C82801D5EA0039842A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = BC3290C72801D5EA0039842A /* SQLite */; };
+		BC3290CA2801D6000039842A /* AirportSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3290C92801D6000039842A /* AirportSearchView.swift */; };
+		BC3290CC2801D6D00039842A /* AirportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3290CB2801D6D00039842A /* AirportInfo.swift */; };
+		BC3290D32802192F0039842A /* FlightDepDesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3290D22802192F0039842A /* FlightDepDesInfo.swift */; };
 		BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */; };
 		BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */; };
 		BC6E3A2827F934D800D7FEF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2727F934D800D7FEF2 /* MapView.swift */; };
@@ -32,6 +37,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC3290C22801D3C50039842A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BC3290C42801D4300039842A /* DataBase Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataBase Connection.swift"; sourceTree = "<group>"; };
+		BC3290C92801D6000039842A /* AirportSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportSearchView.swift; sourceTree = "<group>"; };
+		BC3290CB2801D6D00039842A /* AirportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportInfo.swift; sourceTree = "<group>"; };
+		BC3290D22802192F0039842A /* FlightDepDesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDepDesInfo.swift; sourceTree = "<group>"; };
 		BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmitLoginView.swift; sourceTree = "<group>"; };
 		BC6E3A2727F934D800D7FEF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -62,12 +72,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3290C82801D5EA0039842A /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC3290C32801D41F0039842A /* DataBase Connection */ = {
+			isa = PBXGroup;
+			children = (
+				BC3290C42801D4300039842A /* DataBase Connection.swift */,
+				BC3290CB2801D6D00039842A /* AirportInfo.swift */,
+			);
+			path = "DataBase Connection";
+			sourceTree = "<group>";
+		};
+		BC3290CD2801FC9C0039842A /* AirportSearch */ = {
+			isa = PBXGroup;
+			children = (
+				BC3290C92801D6000039842A /* AirportSearchView.swift */,
+			);
+			path = AirportSearch;
+			sourceTree = "<group>";
+		};
 		BC6E3A2F27F9F44900D7FEF2 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				BC6E3A2B27F9F35600D7FEF2 /* FlightInfo.swift */,
+				BC3290D22802192F0039842A /* FlightDepDesInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +172,9 @@
 		BCD8636927F8C8060010403F /* FinalProjectSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC3290C22801D3C50039842A /* Info.plist */,
+				BC3290CD2801FC9C0039842A /* AirportSearch */,
+				BC3290C32801D41F0039842A /* DataBase Connection */,
 				BC88F9E027FA048C0009F79F /* FilghtList */,
 				BC6E3A3D27F9FAD200D7FEF2 /* MapView */,
 				BC6E3A3C27F9FAA700D7FEF2 /* LoginView */,
@@ -152,11 +184,11 @@
 				BCD8636C27F8C8060010403F /* ContentView.swift */,
 				BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */,
 				FDACB57A27F8EC1F00772169 /* personalUser.swift */,
-				BCD8636E27F8C8080010403F /* Assets.xcassets */,
-				BCD8637027F8C8080010403F /* Preview Content */,
 				FD5DD89E27F9D665007A7F43 /* FlightSearch.swift */,
 				FD5DD8A027F9E23D007A7F43 /* myButton.swift */,
 				FD5DD8A227F9E342007A7F43 /* SearchResult.swift */,
+				BCD8636E27F8C8080010403F /* Assets.xcassets */,
+				BCD8637027F8C8080010403F /* Preview Content */,
 			);
 			path = FinalProjectSwiftUI;
 			sourceTree = "<group>";
@@ -185,6 +217,9 @@
 			dependencies = (
 			);
 			name = FinalProjectSwiftUI;
+			packageProductDependencies = (
+				BC3290C72801D5EA0039842A /* SQLite */,
+			);
 			productName = FinalProjectSwiftUI;
 			productReference = BCD8636727F8C8060010403F /* FinalProjectSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -213,6 +248,9 @@
 				Base,
 			);
 			mainGroup = BCD8635E27F8C8060010403F;
+			packageReferences = (
+				BC3290C62801D5EA0039842A /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = BCD8636827F8C8060010403F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC3290D32802192F0039842A /* FlightDepDesInfo.swift in Sources */,
 				BC6E3A2E27F9F3A700D7FEF2 /* FlightDetailTopView.swift in Sources */,
 				BC6E3A3327F9F75700D7FEF2 /* BlockView.swift in Sources */,
 				BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */,
@@ -246,18 +285,21 @@
 				FD5DD8A327F9E342007A7F43 /* SearchResult.swift in Sources */,
 				BC6E3A2827F934D800D7FEF2 /* MapView.swift in Sources */,
 				BC6E3A3727F9FA0D00D7FEF2 /* LREdgeCutShapeView.swift in Sources */,
+				BC3290CA2801D6000039842A /* AirportSearchView.swift in Sources */,
 				BCD8636D27F8C8060010403F /* ContentView.swift in Sources */,
 				BC6E3A3127F9F45800D7FEF2 /* RoundedCorner.swift in Sources */,
 				BC88F9E427FA05630009F79F /* SearchResultView.swift in Sources */,
 				FD5DD8A127F9E23D007A7F43 /* myButton.swift in Sources */,
 				FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */,
 				BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */,
+				BC3290C52801D4300039842A /* DataBase Connection.swift in Sources */,
 				BC88F9E227FA04AB0009F79F /* FlightListRowView.swift in Sources */,
 				BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */,
 				BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,
 				BC6E3A3527F9F8A600D7FEF2 /* FlightDetailView.swift in Sources */,
 				BC6E3A2A27F9357C00D7FEF2 /* Location.swift in Sources */,
+				BC3290CC2801D6D00039842A /* AirportInfo.swift in Sources */,
 				BC6E3A2C27F9F35600D7FEF2 /* FlightInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +432,7 @@
 				DEVELOPMENT_TEAM = LM3QGAMF25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FinalProjectSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -420,6 +463,7 @@
 				DEVELOPMENT_TEAM = LM3QGAMF25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FinalProjectSwiftUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,6 +505,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BC3290C62801D5EA0039842A /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BC3290C72801D5EA0039842A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BC3290C62801D5EA0039842A /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BCD8635F27F8C8060010403F /* Project object */;
 }
