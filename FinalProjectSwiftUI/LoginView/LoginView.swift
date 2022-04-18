@@ -7,342 +7,193 @@
 
 import SwiftUI
 
+import Firebase
+import FirebaseAuth
+import FirebaseStorage
+
+
 struct LoginView: View {
+    
+    let didCompleteLoginProcess : ()->()
+    
+    
+    @State var isLoginMode = false
+    @State var email = ""
+    @State var password = ""
+    
+    @State var shouldShowImagePicker = false
+    @State var image: UIImage?
+    @State var loginStatusMessage = ""
+    
+    @ObservedObject private var vm = MainMessagesViewModel()
+    
+    
     var body: some View {
-        Home()
-            .preferredColorScheme(.dark)
-    }
-}
-
-struct Home : View {
-    
-    @State var index = 0
-    
-    var body: some View{
-        NavigationView{
-            
-            GeometryReader{_ in
+        NavigationView {
+            ScrollView {
                 
-                VStack{
-                    
-                    Image("Image")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                    
-                    ZStack{
-                        
-                        SignUP(index: self.$index)
-                        // changing view order...
-                            .zIndex(Double(self.index))
-                        
-                        Login(index: self.$index)
-                        
-                    }
-                    
-                    HStack(spacing: 15){
-                        
-                        Rectangle()
-                            .fill(Color("Color1"))
-                            .frame(height: 1)
-                        
-                        Text("OR")
-                        
-                        Rectangle()
-                            .fill(Color("Color1"))
-                            .frame(height: 1)
-                    }
-                    .padding(.horizontal, 30)
-                    .padding(.top, 50)
-                    // because login button is moved 25 in y axis and 25 padding = 50
-                    NavigationLink(destination: AdmitLoginView()){
-                        Text("Administrator Login")
-                            .foregroundColor(.white)
-                    }
-                    
-                }
-                .padding(.vertical)
-            }
-            .background(Color("Color").edgesIgnoringSafeArea(.all))
-        }
-    }
-}
-
-// Curve...
-
-struct CShape : Shape {
-    
-    func path(in rect: CGRect) -> Path {
-        
-        return Path{path in
-            
-            // right side curve...
-            
-            path.move(to: CGPoint(x: rect.width, y: 100))
-            path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-            path.addLine(to: CGPoint(x: 0, y: rect.height))
-            path.addLine(to: CGPoint(x: 0, y: 0))
-            
-        }
-    }
-}
-
-
-struct CShape1 : Shape {
-    
-    func path(in rect: CGRect) -> Path {
-        
-        return Path{path in
-            
-            // left side curve...
-            
-            path.move(to: CGPoint(x: 0, y: 100))
-            path.addLine(to: CGPoint(x: 0, y: rect.height))
-            path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-            path.addLine(to: CGPoint(x: rect.width, y: 0))
-            
-        }
-    }
-}
-
-struct Login : View {
-    
-    @State var email = ""
-    @State var pass = ""
-    @Binding var index : Int
-    
-    var body: some View{
-        
-        ZStack(alignment: .bottom) {
-            
-            VStack{
-                
-                HStack{
-                    
-                    VStack(spacing: 10){
-                        
+                VStack(spacing: 16) {
+                    Picker(selection: $isLoginMode, label: Text("Picker here")) {
                         Text("Login")
-                            .foregroundColor(self.index == 0 ? .white : .gray)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Capsule()
-                            .fill(self.index == 0 ? Color.blue : Color.clear)
-                            .frame(width: 100, height: 5)
+                            .tag(true)
+                        Text("Create Account")
+                            .tag(false)
+                    }.pickerStyle(SegmentedPickerStyle())
+                    
+                    if !isLoginMode {
+                        Button {
+                            shouldShowImagePicker.toggle()
+                        } label: {
+                            VStack {
+                                if let image = self.image {
+                                    Image(uiImage: image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 128, height: 128)
+                                        .cornerRadius(64)
+                                } else {
+                                    Image(systemName: "person.fill")
+                                        .font(.system(size: 64))
+                                        .padding()
+                                        .foregroundColor(Color(.label))
+                                }
+                            }
+                            .overlay(RoundedRectangle(cornerRadius: 64)
+                                .stroke(Color.black, lineWidth: 3)
+                            )
+                        }
                     }
                     
-                    Spacer(minLength: 0)
-                }
-                .padding(.top, 30)// for top curve...
-                
-                VStack{
-                    
-                    HStack(spacing: 15){
-                        
-                        Image(systemName: "envelope.fill")
-                            .foregroundColor(Color("Color1"))
-                        
-                        TextField("Email Address", text: self.$email)
+                    Group {
+                        TextField("Email", text: $email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                        SecureField("Password", text: $password)
                     }
+                    .padding(12)
+                    .background(Color.white)
                     
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 40)
-                
-                VStack{
-                    
-                    HStack(spacing: 15){
+                    Button {
+                        handleAction()
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text(isLoginMode ? "Log In" : "Create Account")
+                                .foregroundColor(.white)
+                                .padding(.vertical, 10)
+                                .font(.system(size: 14, weight: .semibold))
+                            Spacer()
+                        }.background(Color.blue)
                         
-                        Image(systemName: "eye.slash.fill")
-                            .foregroundColor(Color("Color1"))
-                        
-                        SecureField("Password", text: self.$pass)
                     }
-                    
-                    Divider().background(Color.white.opacity(0.5))
+                    Text(self.loginStatusMessage).foregroundColor(.red)
                 }
-                .padding(.horizontal)
-                .padding(.top, 30)
-                
-                HStack{
-                    
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        
-                    }) {
-                        
-                        Text("Forget Password?")
-                            .foregroundColor(Color.white.opacity(0.6))
-                    }
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
-            }
-            .padding()
-            // bottom padding...
-            .padding(.bottom, 65)
-            .background(Color("Color2"))
-            .clipShape(CShape())
-            .contentShape(CShape())
-            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
-            .onTapGesture {
-                
-                self.index = 0
+                .padding()
                 
             }
-            .cornerRadius(35)
-            .padding(.horizontal,20)
-            
-            // Button...
-            
-            Button(action: {
-                
-            }) {
-                
-                Text("LOGIN")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .background(Color("Color1"))
-                    .clipShape(Capsule())
-                // shadow...
-                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
-            }
-            // moving view down..
-            .offset(y: 25)
-            .opacity(self.index == 0 ? 1 : 0)
+            .navigationTitle(isLoginMode ? "Log In" : "Create Account")
+            .background(Color(.init(white: 0, alpha: 0.05))
+                .ignoresSafeArea())
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil){
+            ImagePicker(image: $image)
+                .ignoresSafeArea()
         }
     }
-}
-
-// SignUP Page..
-
-struct SignUP : View {
     
-    @State var email = ""
-    @State var pass = ""
-    @State var Repass = ""
-    @Binding var index : Int
+    private func handleAction() {
+        if isLoginMode {
+            //print("Should log into Firebase with existing credentials")
+            loginUser()
+        } else {
+            createNewAccount()
+            //print("Register a new account inside of Firebase Auth and then store image in Storage somehow....")
+        }
+    }
     
-    var body: some View{
+    private func loginUser() {
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, err in
+            if let err = err {
+                print("Failed to login user:", err)
+                self.loginStatusMessage = "Failed to login user: \(err)"
+                return
+            }
+            
+            print("Successfully logged in as user: \(result?.user.uid ?? "")")
+            
+            self.loginStatusMessage = "Successfully logged in as user: \(result?.user.uid ?? "")"
+            
+            self.didCompleteLoginProcess()
+        }
+    }
+    
+    
+    
+    
+    private func createNewAccount(){
+        FirebaseManager.shared.auth.createUser(withEmail: email, password: password){result ,error in
+            if let err = error{
+                print("Failed to create User", err)
+                self.loginStatusMessage = "Failed to create user: \(err)"
+                return
+            }
+            
+            print("Successfully create User: \(result?.user.uid ?? "") ")
+            self.loginStatusMessage = "Successfully created user: \(result?.user.uid ?? "")"
+            persistImageToStorage()
+        }
+    }
+    
+    private func persistImageToStorage() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
-        ZStack(alignment: .bottom) {
-            
-            VStack{
-                
-                HStack{
-                    
-                    Spacer(minLength: 0)
-                    
-                    VStack(spacing: 10){
-                        
-                        Text("SignUp")
-                            .foregroundColor(self.index == 1 ? .white : .gray)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Capsule()
-                            .fill(self.index == 1 ? Color.blue : Color.clear)
-                            .frame(width: 100, height: 5)
-                    }
-                }
-                .padding(.top, 30)// for top curve...
-                
-                VStack{
-                    
-                    HStack(spacing: 15){
-                        
-                        Image(systemName: "envelope.fill")
-                            .foregroundColor(Color("Color1"))
-                        
-                        TextField("Email Address", text: self.$email)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 40)
-                
-                VStack{
-                    
-                    HStack(spacing: 15){
-                        
-                        Image(systemName: "eye.slash.fill")
-                            .foregroundColor(Color("Color1"))
-                        
-                        SecureField("Password", text: self.$pass)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
-                
-                // replacing forget password with reenter password...
-                // so same height will be maintained...
-                
-                VStack{
-                    
-                    HStack(spacing: 15){
-                        
-                        Image(systemName: "eye.slash.fill")
-                            .foregroundColor(Color("Color1"))
-                        
-                        SecureField("Password", text: self.$Repass)
-                    }
-                    
-                    Divider().background(Color.white.opacity(0.5))
-                }
-                .padding(.horizontal)
-                .padding(.top, 30)
+        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+        guard let imageData = self.image?.jpegData(compressionQuality: 0.5) else { return }
+        ref.putData(imageData, metadata: nil) { metadata, err in
+            if let err = err {
+                self.loginStatusMessage = "Failed to push image to Storage: \(err)"
+                return
             }
-            .padding()
-            // bottom padding...
-            .padding(.bottom, 65)
-            .background(Color("Color2"))
-            .clipShape(CShape1())
-            // clipping the content shape also for tap gesture...
-            .contentShape(CShape1())
-            // shadow...
-            .shadow(color: Color.black.opacity(0.3), radius: 5, x: 0, y: -5)
-            .onTapGesture {
-                
-                self.index = 1
-                
-            }
-            .cornerRadius(35)
-            .padding(.horizontal,20)
             
-            // Button...
-            
-            Button(action: {
+            ref.downloadURL { url, err in
+                if let err = err {
+                    self.loginStatusMessage = "Failed to retrieve downloadURL: \(err)"
+                    return
+                }
                 
-            }) {
+                self.loginStatusMessage = "Successfully stored image with url: \(url?.absoluteString ?? "")"
+                print(url?.absoluteString ?? "")
                 
-                Text("SIGNUP")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                    .padding(.vertical)
-                    .padding(.horizontal, 50)
-                    .background(Color("Color1"))
-                    .clipShape(Capsule())
-                // shadow...
-                    .shadow(color: Color.white.opacity(0.1), radius: 5, x: 0, y: 5)
+                guard let url = url else {return}
+                
+                self.storeUserInformation(imageProfileUrl: url)
             }
-            // moving view down..
-            .offset(y: 25)
-            // hiding view when its in background...
-            // only button...
-            .opacity(self.index == 1 ? 1 : 0)
         }
     }
+    
+    private func storeUserInformation(imageProfileUrl: URL) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        let userData = ["email": self.email, "uid": uid, "password": self.password, "permission": "User", "profileImageUrl": imageProfileUrl.absoluteString]
+        FirebaseManager.shared.firestore.collection("users")
+            .document(uid).setData(userData) { err in
+                if let err = err {
+                    print(err)
+                    self.loginStatusMessage = "\(err)"
+                    return
+                }
+
+                print("Success")
+            }
+    }
+    
+    
+    
 }
-
-
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(didCompleteLoginProcess: {
+            
+        })
     }
 }
