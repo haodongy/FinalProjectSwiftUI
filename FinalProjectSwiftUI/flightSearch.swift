@@ -8,75 +8,74 @@
 import SwiftUI
 
 struct FlightSearch: View {
-    @State var departure: String = ""
-    @State var destination: String = ""
+
     @State private var date = Date()
+    @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
+    @State private var showingSearchDep = false
+    @State private var showingSearchDes = false
+    
     var body: some View {
-        VStack{
-            HStack{
-                Image(systemName: "location")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24.0)
-                    .foregroundColor(.teal)
-                    .padding(.horizontal, 8.0)
-                TextField("Flying from", text: $departure)
-                    .keyboardType(.default)
-                    .multilineTextAlignment(.leading)
-                    .accentColor(.black)
-                    .foregroundColor(.black)
-                    .font(.system(size: 14))
-                    .frame(height:38)
-                    .padding(.horizontal, 26)
-                    .textFieldStyle(.automatic)
-                
-            }
-            
-            HStack{
-                Image(systemName: "location")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24.0)
-                    .foregroundColor(.teal)
-                    .padding(.horizontal, 8.0)
-                TextField("Flying to", text: $destination)
-                    .keyboardType(.default)
-                    .multilineTextAlignment(.leading)
-                    .accentColor(.black)
-                    .foregroundColor(.black)
-                    .font(.system(size: 14))
-                    .frame(height:38)
-                    .padding(.horizontal, 26)
-                    .textFieldStyle(.automatic)
-                
-            }
-            HStack{
-                Image(systemName: "calendar")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24.0)
-                    .foregroundColor(.teal)
-                    .padding(.horizontal, 8.0)
-                DatePicker(
+
+        NavigationView{
+            VStack{
+                VStack(alignment:.leading){
+                    Button(action: {
+                        self.showingSearchDep.toggle()
+                    }){
+                        HStack{
+                            Image(systemName: "location")
+                            Text("Flying from")
+                            if flighDepDesInfo.departureInfo.name != nil{
+                                Text("  \(CityName(airport:flighDepDesInfo.departureInfo))")
+                            }
+
+                        }
+                    }
+                    .sheet(isPresented: $showingSearchDep){
+                        AirportSearchView(airportInfo: self.$flighDepDesInfo.departureInfo)
+                    }
+                    .padding()
+                    
+                    Button(action: {
+                        self.showingSearchDes.toggle()
+                    }){
+                        HStack{
+                            Image(systemName: "location")
+                            Text("Flying to")
+                            if flighDepDesInfo.destinationInfo.name != nil{
+                                Text("  \(CityName(airport:flighDepDesInfo.destinationInfo))")
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $showingSearchDes){
+                        AirportSearchView(airportInfo: self.$flighDepDesInfo.destinationInfo)
+                    }
+                    .padding()
+                    
+                    DatePicker(
                         "Select dates",
                         selection: $date,
                         displayedComponents: [.date]
                     )
+                }
+                Spacer()
+                HStack(alignment:.center){
+                    Button { } label: {
+                        Text("search")
+                            .font(Font.body.bold())
+                            .padding()
+                            .foregroundColor(Color.primary)
+                            .colorInvert()
+                    }
+                    .myButtonStyle()
+                }
             }
-            
-            Spacer()
-            Button { } label: {
-                Text("search")
-                    .font(Font.body.bold())
-                    .padding()
-                    .foregroundColor(Color.primary)
-                    .colorInvert()
-            }
-            .myButtonStyle()
-            
         }
+        
     }
 }
+
+
 
 struct flightSearch_Previews: PreviewProvider {
     static var previews: some View {
