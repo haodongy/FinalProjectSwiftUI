@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct searchResult: View {
+struct SearchResult: View {
     var body: some View {
         List(0..<3) { item in
                     VStack(alignment: .leading) {
@@ -37,6 +37,6 @@ struct searchResult: View {
 
 struct searchResult_Previews: PreviewProvider {
     static var previews: some View {
-        searchResult()
+        SearchResult()
     }
 }
