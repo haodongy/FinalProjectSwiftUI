@@ -17,7 +17,7 @@ struct LoginView: View {
     let didCompleteLoginProcess : ()->()
     
     
-    @State var isLoginMode = false
+    @State var isLoginMode = true
     @State var email = ""
     @State var password = ""
     
@@ -26,6 +26,8 @@ struct LoginView: View {
     @State var loginStatusMessage = ""
     
     @ObservedObject private var vm = MainMessagesViewModel()
+    
+    @State private var showingAlert = false
     
     
     var body: some View {
@@ -86,6 +88,19 @@ struct LoginView: View {
                         }.background(Color.blue)
                         
                     }
+                    if isLoginMode{
+                        HStack{
+                            Spacer()
+                            Button{
+                                resetPassword()
+                            }label:{
+                                Text("Forget Password")
+                            }
+                            .alert("Email can't be empty", isPresented: $showingAlert) {
+                                Button("OK", role: .cancel) { }
+                            }
+                        }
+                    }
                     Text(self.loginStatusMessage).foregroundColor(.red)
                 }
                 .padding()
@@ -99,6 +114,20 @@ struct LoginView: View {
         .fullScreenCover(isPresented: $shouldShowImagePicker, onDismiss: nil){
             ImagePicker(image: $image)
                 .ignoresSafeArea()
+        }
+    }
+    
+    private func resetPassword() {
+        if self.email != "" {
+            FirebaseManager.shared.auth.sendPasswordReset(withEmail: self.email){ error in
+                if let error = error{
+                    self.loginStatusMessage = "Failed to login user: \(error)"
+                    return
+                }
+            }
+        }
+        else{
+            self.showingAlert.toggle()
         }
     }
     
@@ -182,7 +211,7 @@ struct LoginView: View {
                     self.loginStatusMessage = "\(err)"
                     return
                 }
-
+                
                 print("Success")
             }
     }
