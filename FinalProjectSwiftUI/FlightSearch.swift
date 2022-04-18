@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct FlightSearch: View {
+
     @State private var date = Date()
     @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
     @State private var showingSearchDep = false
     @State private var showingSearchDes = false
     
     var body: some View {
+
         NavigationView{
             VStack{
                 VStack(alignment:.leading){
