@@ -1,14 +1,13 @@
 //
-//  flightSearch.swift
+//  FlightSearchView.swift
 //  FinalProjectSwiftUI
 //
-//  Created by Sitao Wang on 4/3/22.
+//  Created by Haodong Yang on 4/17/22.
 //
 
 import SwiftUI
 
-struct FlightSearch: View {
-
+struct FlightSearchView: View {
     @State private var date = Date()
     @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
     @State private var showingSearchDep = false
@@ -75,10 +74,8 @@ struct FlightSearch: View {
     }
 }
 
-
-struct flightSearch_Previews: PreviewProvider {
+struct FlightSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightSearch()
+        FlightSearchView()
     }
 }
-
