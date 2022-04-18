@@ -8,47 +8,71 @@
 import SwiftUI
 
 struct FlightSearch: View {
-    @State var departure: String = ""
-    @State var destination: String = ""
     @State private var date = Date()
+    @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
+    @State private var showingSearchDep = false
+    @State private var showingSearchDes = false
+    
     var body: some View {
-        VStack{
-            TextField("Flying from", text: $departure)
-                .keyboardType(.phonePad)
-                .multilineTextAlignment(.leading)
-                .accentColor(.purple)
-                .foregroundColor(.red)
-                .font(.system(size: 14))
-                .frame(height:38)
-                .padding(.horizontal, 26)
-                .textFieldStyle(.automatic)
-            TextField("Flying to", text: $destination)
-                .keyboardType(.phonePad)
-                .multilineTextAlignment(.leading)
-                .accentColor(.purple)
-                .foregroundColor(.red)
-                .font(.system(size: 14))
-                .frame(height:38)
-                .padding(.horizontal, 26)
-                .textFieldStyle(.automatic)
-            DatePicker(
-                    "Select dates",
-                    selection: $date,
-                    displayedComponents: [.date]
-                )
-            Spacer()
-            Button { } label: {
-                Text("search")
-                    .font(Font.body.bold())
+        NavigationView{
+            VStack{
+                VStack(alignment:.leading){
+                    Button(action: {
+                        self.showingSearchDep.toggle()
+                    }){
+                        HStack{
+                            Image(systemName: "location")
+                            Text("Flying from")
+                            if flighDepDesInfo.departureInfo.name != nil{
+                                Text("  \(CityName(airport:flighDepDesInfo.departureInfo))")
+                            }
+
+                        }
+                    }
+                    .sheet(isPresented: $showingSearchDep){
+                        AirportSearchView(airportInfo: self.$flighDepDesInfo.departureInfo)
+                    }
                     .padding()
-                    .foregroundColor(Color.primary)
-                    .colorInvert()
+                    
+                    Button(action: {
+                        self.showingSearchDes.toggle()
+                    }){
+                        HStack{
+                            Image(systemName: "location")
+                            Text("Flying to")
+                            if flighDepDesInfo.destinationInfo.name != nil{
+                                Text("  \(CityName(airport:flighDepDesInfo.destinationInfo))")
+                            }
+                        }
+                    }
+                    .sheet(isPresented: $showingSearchDes){
+                        AirportSearchView(airportInfo: self.$flighDepDesInfo.destinationInfo)
+                    }
+                    .padding()
+                    
+                    DatePicker(
+                        "Select dates",
+                        selection: $date,
+                        displayedComponents: [.date]
+                    )
+                }
+                Spacer()
+                HStack(alignment:.center){
+                    Button { } label: {
+                        Text("search")
+                            .font(Font.body.bold())
+                            .padding()
+                            .foregroundColor(Color.primary)
+                            .colorInvert()
+                    }
+                    .myButtonStyle()
+                }
             }
-            .myButtonStyle()
-            
         }
+        
     }
 }
+
 
 struct flightSearch_Previews: PreviewProvider {
     static var previews: some View {

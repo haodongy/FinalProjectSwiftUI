@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ContentView: View {
+
+    @ObservedObject private var vm = MainMessagesViewModel()
+    
     var body: some View {
-        FlightSearch()
+        NavigationView{
+            SettingsView()
+        }
     }
 }
 
