@@ -33,7 +33,7 @@ class PermissionInfoModel: ObservableObject{
             
             self.permissions = documents.map { (queryDocumentSnapshot) -> PermissionInfo in
                 let data = queryDocumentSnapshot.data()
-                let id_f = data["id"] as? String ?? ""
+                let id_f = data["uid"] as? String ?? ""
                 let password_f = data["password"] as? String ?? ""
                 let profileImageUrl_f = data["profileImageUrl"] as? String ?? ""
                 let email_f = data["email"] as? String ?? ""
@@ -46,3 +46,4 @@ class PermissionInfoModel: ObservableObject{
         }
     }
 }
+

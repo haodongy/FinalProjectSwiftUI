@@ -18,6 +18,7 @@ struct SettingsView: View {
     @State var shouldShowLogOutOptions = false
     @State var image: UIImage?
     @State private var showingFavoriteSheet = false
+    @State private var showingManagementSheet = false
     
     @State var shouldShowImagePicker = false
     
@@ -29,6 +30,10 @@ struct SettingsView: View {
     @ObservedObject var permissionModel = PermissionInfoModel()
     //@State private var submit = false
     
+    
+    init(){
+        permissionModel.getPermissionInfo(uid: FirebaseManager.shared.auth.currentUser?.uid ?? "")
+    }
     
     var body: some View {
         NavigationView{
@@ -159,11 +164,11 @@ struct SettingsView: View {
                     PersonalFavoriteView()
                 }
 
-                /*
+                
                 ForEach(permissionModel.permissions){ permission in
                     if permission.permission == "Admit" {
                         Button{
-                            
+                            self.showingManagementSheet.toggle()
                         }label: {
                             HStack {
                                 Spacer()
@@ -174,9 +179,12 @@ struct SettingsView: View {
                                 Spacer()
                             }.background(Color.blue)
                         }
+                        .fullScreenCover(isPresented: $showingManagementSheet){
+                            ManagementAdmitView()
+                        }
                     }
                 }
-                 */
+                
                 
                 
                 

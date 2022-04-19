@@ -15,6 +15,10 @@ struct ChatUser {
     var uid, email, password, permission, profileImageUrl: String
 }
 
+struct User: Identifiable {
+    var id, email, password, permission, profileImageUrl: String
+}
+
 class MainMessagesViewModel: ObservableObject {
     
     @Published var errorMessage = ""
@@ -62,4 +66,33 @@ class MainMessagesViewModel: ObservableObject {
         try? FirebaseManager.shared.auth.signOut()
     }
     
+}
+
+
+class UserInfoModel: ObservableObject{
+    @Published var users = [User]()
+    
+    private var db = Firestore.firestore()
+    
+    func getUserInfo(){
+        db.collection("users").addSnapshotListener{ (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("No documents")
+                return
+            }
+            
+            self.users = documents.map { (queryDocumentSnapshot) -> User in
+                let data = queryDocumentSnapshot.data()
+                let id_f = data["uid"] as? String ?? ""
+                let password_f = data["password"] as? String ?? ""
+                let profileImageUrl_f = data["profileImageUrl"] as? String ?? ""
+                let email_f = data["email"] as? String ?? ""
+                let permission_f = data["permission"] as? String ?? ""
+                
+                
+                return User(id: id_f, email: email_f, password: password_f, permission: permission_f, profileImageUrl: profileImageUrl_f)
+            }
+            print(self.users)
+        }
+    }
 }
