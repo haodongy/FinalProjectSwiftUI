@@ -48,6 +48,7 @@
 		BCE19B18280CE25900B41667 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BCE19B17280CE25900B41667 /* FirebaseStorageCombine-Community */; };
 		BCE19B1A280CF97400B41667 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE19B19280CF97400B41667 /* Permission.swift */; };
 		BCE19B1C280D00F600B41667 /* PersonalFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE19B1B280D00F600B41667 /* PersonalFavoriteView.swift */; };
+		FD18EA50280EB8F600908AA9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD18EA4F280EB8F600908AA9 /* Alamofire */; };
 		FD5DD8A127F9E23D007A7F43 /* myButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD8A027F9E23D007A7F43 /* myButton.swift */; };
 		FD5DD8A327F9E342007A7F43 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD8A227F9E342007A7F43 /* SearchResult.swift */; };
 		FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDACB57A27F8EC1F00772169 /* personalUser.swift */; };
@@ -115,6 +116,7 @@
 				BC3290C82801D5EA0039842A /* SQLite in Frameworks */,
 				BCE19B14280CE25900B41667 /* FirebaseFirestoreSwift in Frameworks */,
 				BCE19B12280CE25900B41667 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				FD18EA50280EB8F600908AA9 /* Alamofire in Frameworks */,
 				BCE19B16280CE25900B41667 /* FirebaseStorage in Frameworks */,
 				BCE19B10280CE25900B41667 /* FirebaseFirestore in Frameworks */,
 				BCE19B18280CE25900B41667 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -312,6 +314,7 @@
 				BCE19B13280CE25900B41667 /* FirebaseFirestoreSwift */,
 				BCE19B15280CE25900B41667 /* FirebaseStorage */,
 				BCE19B17280CE25900B41667 /* FirebaseStorageCombine-Community */,
+				FD18EA4F280EB8F600908AA9 /* Alamofire */,
 			);
 			productName = FinalProjectSwiftUI;
 			productReference = BCD8636727F8C8060010403F /* FinalProjectSwiftUI.app */;
@@ -345,6 +348,7 @@
 				BC3290C62801D5EA0039842A /* XCRemoteSwiftPackageReference "SQLite.swift" */,
 				BC291174280CDE7D00DA857B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				BCE19B0A280CE25900B41667 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FD18EA4E280EB8F600908AA9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = BCD8636827F8C8060010403F /* Products */;
 			projectDirPath = "";
@@ -641,6 +645,14 @@
 				kind = branch;
 			};
 		};
+		FD18EA4E280EB8F600908AA9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -688,6 +700,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCE19B0A280CE25900B41667 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		FD18EA4F280EB8F600908AA9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD18EA4E280EB8F600908AA9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
