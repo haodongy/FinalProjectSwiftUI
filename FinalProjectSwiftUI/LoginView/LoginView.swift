@@ -29,6 +29,8 @@ struct LoginView: View {
     
     @State private var showingAlert = false
     
+    @ObservedObject var permissionModel = PermissionInfoModel()
+    
     
     var body: some View {
         NavigationView {
@@ -77,6 +79,7 @@ struct LoginView: View {
                     
                     Button {
                         handleAction()
+                        
                     } label: {
                         HStack {
                             Spacer()
@@ -88,6 +91,8 @@ struct LoginView: View {
                         }.background(Color.blue)
                         
                     }
+                    
+                    
                     if isLoginMode{
                         HStack{
                             Spacer()
@@ -154,7 +159,9 @@ struct LoginView: View {
             self.loginStatusMessage = "Successfully logged in as user: \(result?.user.uid ?? "")"
             
             self.didCompleteLoginProcess()
+            self.permissionModel.getPermissionInfo(uid: FirebaseManager.shared.auth.currentUser?.uid ?? "")
         }
+
     }
     
     

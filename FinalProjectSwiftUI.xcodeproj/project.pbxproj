@@ -34,6 +34,7 @@
 		BCD8636D27F8C8060010403F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD8636C27F8C8060010403F /* ContentView.swift */; };
 		BCD8636F27F8C8080010403F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8636E27F8C8080010403F /* Assets.xcassets */; };
 		BCD8637227F8C8080010403F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD8637127F8C8080010403F /* Preview Assets.xcassets */; };
+		BCDA88AE280E33EE00C020B6 /* ManagementAdmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDA88AD280E33EE00C020B6 /* ManagementAdmitView.swift */; };
 		BCDC170B280CC3950025DD0D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCDC170A280CC3950025DD0D /* GoogleService-Info.plist */; };
 		BCDC170E280CC3CD0025DD0D /* FirebaseManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC170D280CC3CD0025DD0D /* FirebaseManger.swift */; };
 		BCDC1710280CC5240025DD0D /* CurrentUserFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDC170F280CC5240025DD0D /* CurrentUserFetch.swift */; };
@@ -80,6 +81,7 @@
 		BCD8636C27F8C8060010403F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BCD8636E27F8C8080010403F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCD8637127F8C8080010403F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BCDA88AD280E33EE00C020B6 /* ManagementAdmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementAdmitView.swift; sourceTree = "<group>"; };
 		BCDC170A280CC3950025DD0D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCDC170D280CC3CD0025DD0D /* FirebaseManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManger.swift; sourceTree = "<group>"; };
 		BCDC170F280CC5240025DD0D /* CurrentUserFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserFetch.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */,
 				BC291172280CDDEA00DA857B /* SettingView.swift */,
 				BCE19B1B280D00F600B41667 /* PersonalFavoriteView.swift */,
+				BCDA88AD280E33EE00C020B6 /* ManagementAdmitView.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */,
 				BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,
+				BCDA88AE280E33EE00C020B6 /* ManagementAdmitView.swift in Sources */,
 				BC6E3A3527F9F8A600D7FEF2 /* FlightDetailView.swift in Sources */,
 				BC6E3A2A27F9357C00D7FEF2 /* Location.swift in Sources */,
 				BC3290CC2801D6D00039842A /* AirportInfo.swift in Sources */,
