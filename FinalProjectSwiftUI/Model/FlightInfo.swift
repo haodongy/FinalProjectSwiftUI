@@ -8,6 +8,118 @@
 import Foundation
 import SwiftUI
 
+struct FlightResponse: Codable{
+    var results: [FlightInfo1]
+    enum CodingKeys: String, CodingKey{
+            case results = "data"
+        }
+}
+struct res: Codable{
+    var pagination: pagination?
+    var data: [FlightInfo1]?
+}
+struct pagination: Codable{
+    var limit: Int?
+    var offset: Int?
+    var count: Int?
+    var total: Int?
+}
+struct hisData: Codable{
+    var data: [FlightInfo1]
+}
+struct FlightInfo1: Codable{
+    var flight_date: String?
+    var flight_status: String?
+    var departure: departure?
+    var arrival: arrival?
+    var airline: airline?
+    var flight: flight?
+    var aircraft: aircraft?
+    var live: live?
+    
+}
+struct FlightInfo2: Codable{
+    var aircraft: aircraft?
+    var airline: airline?
+    var arrival: arrival?
+    var departure: departure?
+    var flight: flight?
+    var flight_date: String?
+    var flight_status: String?
+    var live: live?
+}
+struct departure: Codable{
+    var airport: String?
+    var timezone: String?
+    var iata: String?
+    var icao: String?
+    var terminal: String?
+    var gate: String?
+    var delay: Int?
+    var scheduled: String?
+    var estimated: String?
+    var actual: String?
+    var estimated_runway: String?
+    var actual_runway: String?
+}
+
+struct arrival: Codable{
+    var airport: String?
+    var timezone: String?
+    var iata: String?
+    var icao: String?
+    var terminal: String?
+    var gate: String?
+    var baggage: String?
+    var delay: Int?
+    var scheduled: String?
+    var estimated: String?
+    var actual: String?
+    var estimated_runway: String?
+    var actual_runway: String?
+}
+
+struct airline: Codable{
+    var name: String?
+    var iata: String?
+    var icao: String?
+}
+
+struct flight: Codable{
+    var number: String?
+    var iata: String?
+    var icao: String?
+    var codeshared: flightsub?
+}
+
+struct flightsub: Codable{
+    var airline_name: String?
+    var airline_iata: String?
+    var airline_icao: String?
+    var flight_number: String?
+    var flight_iata: String?
+    var flight_icao: String?
+}
+
+struct aircraft: Codable{
+    var registration: String?
+    var iata: String?
+    var icao: String?
+    var icao24: String?
+}
+
+struct live: Codable{
+    var updated: String?
+    var latitude: Double?
+    var longitude: Double?
+    var altitude: Double?
+    var direction: Double?
+    var speed_horizontal: Double?
+    var speed_vertical: Double?
+    var is_ground: Bool?
+    
+}
+
 struct FlightInfo: Decodable, Hashable {
     let flightType: FlightType
     let departure: String
