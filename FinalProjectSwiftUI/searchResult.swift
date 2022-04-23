@@ -39,4 +39,5 @@ struct searchResult_Previews: PreviewProvider {
     static var previews: some View {
         SearchResult()
     }
+    
 }

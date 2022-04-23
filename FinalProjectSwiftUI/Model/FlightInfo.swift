@@ -24,7 +24,9 @@ struct pagination: Codable{
     var count: Int?
     var total: Int?
 }
-
+struct hisData: Codable{
+    var data: [FlightInfo1]
+}
 struct FlightInfo1: Codable{
     var flight_date: String?
     var flight_status: String?
@@ -36,6 +38,16 @@ struct FlightInfo1: Codable{
     var live: live?
     
 }
+struct FlightInfo2: Codable{
+    var aircraft: aircraft?
+    var airline: airline?
+    var arrival: arrival?
+    var departure: departure?
+    var flight: flight?
+    var flight_date: String?
+    var flight_status: String?
+    var live: live?
+}
 struct departure: Codable{
     var airport: String?
     var timezone: String?
@@ -43,6 +55,7 @@ struct departure: Codable{
     var icao: String?
     var terminal: String?
     var gate: String?
+    var delay: Int?
     var scheduled: String?
     var estimated: String?
     var actual: String?
@@ -57,6 +70,8 @@ struct arrival: Codable{
     var icao: String?
     var terminal: String?
     var gate: String?
+    var baggage: String?
+    var delay: Int?
     var scheduled: String?
     var estimated: String?
     var actual: String?

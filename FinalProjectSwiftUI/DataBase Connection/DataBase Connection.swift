@@ -32,11 +32,11 @@ class DB_Manger{
     
     var lat_decimal: Expression<Double>!
     var lon_decimal: Expression<Double>!
-    
+    	
     init(){
         do{
-            let path:String = "/Users/haodongyang/syracuseCIS/CIS651"
-            db = try Connection("\(path)/global_airports_sqlite.db")
+            let path:String = "/Users/sitaowang/Documents"
+            db = try Connection("\(path)/global_airports_sqlite.sqlite3")
             
             airportInfo = Table("airports")
             id = Expression<Int64>("id")
@@ -91,6 +91,7 @@ class DB_Manger{
             
         }catch{
             print(error.localizedDescription)
+            print("not open")
         }
     }
     

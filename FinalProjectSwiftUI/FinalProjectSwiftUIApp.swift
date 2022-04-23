@@ -7,10 +7,10 @@
 
 import SwiftUI
 import Firebase
+import nanopb
 
 @main
 struct FinalProjectSwiftUIApp: App {
-    
     init() {
         FirebaseApp.configure()
       }
@@ -21,3 +21,4 @@ struct FinalProjectSwiftUIApp: App {
         }
     }
 }
+
