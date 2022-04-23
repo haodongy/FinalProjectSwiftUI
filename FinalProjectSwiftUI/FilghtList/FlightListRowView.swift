@@ -16,8 +16,8 @@ struct FlightListRowView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(flightInfo.date)
-                    .font(.custom("Futura-Medium", size: 15.0, relativeTo: .subheadline))
+                Text(flightInfo1.flight_date ?? "")
+                    .font(.custom("Futura-Medium", size: 10.0, relativeTo: .subheadline))
                 Text("DATE")
                     .font(.caption2)
                     .fontWeight(.semibold)
@@ -26,9 +26,9 @@ struct FlightListRowView: View {
             .frame(width: 40.0, alignment: .leading)
             Divider()
             VStack(alignment: .leading) {
-                Text(flightInfo.departureCode)
+                Text(flightInfo1.departure?.icao ?? "")
                     .font(.custom("Futura-Medium", size: 20.0, relativeTo: .title3))
-                Text(flightInfo.departure)
+                Text(flightInfo1.departure?.airport ?? "")
                     .font(.caption2)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
@@ -42,9 +42,9 @@ struct FlightListRowView: View {
                 .foregroundColor((flightInfo.flightType.themeColor))
             Spacer()
             VStack(alignment: .trailing) {
-                Text(flightInfo.destinationCode)
+                Text(flightInfo1.arrival?.icao ?? "")
                     .font(.custom("Futura-Medium", size: 20.0, relativeTo: .title3))
-                Text(flightInfo.destination)
+                Text(flightInfo1.arrival?.airport ?? "")
                     .font(.caption2)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
