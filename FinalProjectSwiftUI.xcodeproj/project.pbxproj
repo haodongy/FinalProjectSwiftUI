@@ -53,10 +53,10 @@
 		BCE19B1A280CF97400B41667 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE19B19280CF97400B41667 /* Permission.swift */; };
 		BCE19B1C280D00F600B41667 /* PersonalFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE19B1B280D00F600B41667 /* PersonalFavoriteView.swift */; };
 		FD18EA50280EB8F600908AA9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD18EA4F280EB8F600908AA9 /* Alamofire */; };
+		FD35793B2815498600ECA2CF /* hisData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD35793A2815498500ECA2CF /* hisData.swift */; };
 		FD3678472812582F0056D34B /* HistoricFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3678462812582F0056D34B /* HistoricFlight.swift */; };
 		FD5DD8A127F9E23D007A7F43 /* myButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD8A027F9E23D007A7F43 /* myButton.swift */; };
 		FD5DD8A327F9E342007A7F43 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5DD8A227F9E342007A7F43 /* SearchResult.swift */; };
-		FDA37E8A2813FB9900D6003E /* hisData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA37E892813FB9800D6003E /* hisData.swift */; };
 		FDACB57B27F8EC1F00772169 /* personalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDACB57A27F8EC1F00772169 /* personalUser.swift */; };
 		FDDBB54A280EA05A002B766F /* FlightDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDBB545280EA05A002B766F /* FlightDownloadManager.swift */; };
 		FDDBB54B280EA05A002B766F /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDBB546280EA05A002B766F /* APIResponse.swift */; };
@@ -105,10 +105,10 @@
 		BCDC1711280CD1E30025DD0D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		BCE19B19280CF97400B41667 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		BCE19B1B280D00F600B41667 /* PersonalFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalFavoriteView.swift; sourceTree = "<group>"; };
+		FD35793A2815498500ECA2CF /* hisData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hisData.swift; sourceTree = "<group>"; };
 		FD3678462812582F0056D34B /* HistoricFlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricFlight.swift; sourceTree = "<group>"; };
 		FD5DD8A027F9E23D007A7F43 /* myButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myButton.swift; sourceTree = "<group>"; };
 		FD5DD8A227F9E342007A7F43 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		FDA37E892813FB9800D6003E /* hisData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hisData.swift; sourceTree = "<group>"; };
 		FDACB57A27F8EC1F00772169 /* personalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalUser.swift; sourceTree = "<group>"; };
 		FDDBB545280EA05A002B766F /* FlightDownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDownloadManager.swift; sourceTree = "<group>"; };
 		FDDBB546280EA05A002B766F /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
@@ -296,11 +296,11 @@
 			isa = PBXGroup;
 			children = (
 				FDDBB545280EA05A002B766F /* FlightDownloadManager.swift */,
+				FD35793A2815498500ECA2CF /* hisData.swift */,
 				FDDBB546280EA05A002B766F /* APIResponse.swift */,
 				FDDBB547280EA05A002B766F /* API.swift */,
 				FDDBB548280EA05A002B766F /* FlightURL.swift */,
 				FDDBB549280EA05A002B766F /* RealTimeFlight.swift */,
-				FDA37E892813FB9800D6003E /* hisData.swift */,
 				FD3678462812582F0056D34B /* HistoricFlight.swift */,
 			);
 			path = APIResponse;
@@ -402,7 +402,6 @@
 				BC8A01FA2814E5C50040014B /* DepartureAirportMapView.swift in Sources */,
 				BCDC1712280CD1E30025DD0D /* ImagePicker.swift in Sources */,
 				FDDBB54B280EA05A002B766F /* APIResponse.swift in Sources */,
-				FDA37E8A2813FB9900D6003E /* hisData.swift in Sources */,
 				BCDC1710280CC5240025DD0D /* CurrentUserFetch.swift in Sources */,
 				BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */,
 				BCDC170E280CC3CD0025DD0D /* FirebaseManger.swift in Sources */,
@@ -426,6 +425,7 @@
 				BC88F9E227FA04AB0009F79F /* FlightListRowView.swift in Sources */,
 				BC6E3A3927F9FA2900D7FEF2 /* LineShape.swift in Sources */,
 				FDDBB550280EA06F002B766F /* text.swift in Sources */,
+				FD35793B2815498600ECA2CF /* hisData.swift in Sources */,
 				BC6E3A3F27FA003800D7FEF2 /* FlightDetailInfoVIew.swift in Sources */,
 				BC8A01F82814E39B0040014B /* FlightDetailInfoAnotherView.swift in Sources */,
 				BCD8636B27F8C8060010403F /* FinalProjectSwiftUIApp.swift in Sources */,
