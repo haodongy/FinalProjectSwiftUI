@@ -1,6 +1,6 @@
 import Foundation
 
 struct API {
-    static let key = "941e679da20a455f6e579cb6a55d69e3"
+    static let key = "47bdcd8914fecdf1561a108304c42c2b"
 
 }

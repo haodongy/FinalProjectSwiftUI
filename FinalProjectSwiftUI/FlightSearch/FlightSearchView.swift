@@ -12,6 +12,7 @@ struct FlightSearchView: View {
     @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
     @State private var showingSearchDep = false
     @State private var showingSearchDes = false
+    @State private var showingSearchResult = false
     
     var body: some View {
 
@@ -59,7 +60,9 @@ struct FlightSearchView: View {
                 }
                 Spacer()
                 HStack(alignment:.center){
-                    Button { } label: {
+                    Button {
+                        self.showingSearchResult.toggle()
+                    } label: {
                         Text("search")
                             .font(Font.body.bold())
                             .padding()
@@ -67,6 +70,9 @@ struct FlightSearchView: View {
                             .colorInvert()
                     }
                     .myButtonStyle()
+                    .fullScreenCover(isPresented: $showingSearchResult){
+                        SearchResultView(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo)
+                    }
                 }
             }
         }

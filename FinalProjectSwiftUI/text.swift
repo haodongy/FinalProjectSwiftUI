@@ -27,7 +27,7 @@ struct text: View {
             
         }
             Button("23") {
-                print(flight.flightInfo[0].airline?.iata)
+                print(flight.flightInfo[0].airline?.iata ?? "")
                 print(his.flightRes.count)
             }
         }
