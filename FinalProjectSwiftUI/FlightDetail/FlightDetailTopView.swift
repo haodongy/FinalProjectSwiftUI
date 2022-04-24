@@ -77,7 +77,7 @@ struct FlightDetailTopView: View {
         let diffComponents = Calendar.current.dateComponents([.hour,.minute], from: DepartureDate, to: ArriveDate)
         let hours = diffComponents.hour
         let minute = diffComponents.minute
-        if minute ?? 0 > 10{
+        if minute ?? 0 >= 10{
             return "\(hours ?? 0)H \(minute ?? 0)M"
         }else{
             return "\(hours ?? 0)H 0\(minute ?? 0)M"
