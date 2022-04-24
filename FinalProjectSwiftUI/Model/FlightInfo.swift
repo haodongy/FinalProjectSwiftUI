@@ -14,20 +14,20 @@ struct FlightResponse: Codable{
             case results = "data"
         }
 }
-struct res: Codable{
+struct res: Codable, Hashable{
     var pagination: pagination?
     var data: [FlightInfo1]?
 }
-struct pagination: Codable{
+struct pagination: Codable,Hashable{
     var limit: Int?
     var offset: Int?
     var count: Int?
     var total: Int?
 }
-struct hisData: Codable{
+struct hisData: Codable,Hashable{
     var data: [FlightInfo1]
 }
-struct FlightInfo1: Codable{
+struct FlightInfo1: Codable,Hashable{
     var flight_date: String?
     var flight_status: String?
     var departure: departure?
@@ -38,7 +38,7 @@ struct FlightInfo1: Codable{
     var live: live?
     
 }
-struct FlightInfo2: Codable{
+struct FlightInfo2: Codable,Hashable{
     var aircraft: aircraft?
     var airline: airline?
     var arrival: arrival?
@@ -48,7 +48,7 @@ struct FlightInfo2: Codable{
     var flight_status: String?
     var live: live?
 }
-struct departure: Codable{
+struct departure: Codable,Hashable{
     var airport: String?
     var timezone: String?
     var iata: String?
@@ -63,7 +63,7 @@ struct departure: Codable{
     var actual_runway: String?
 }
 
-struct arrival: Codable{
+struct arrival: Codable,Hashable{
     var airport: String?
     var timezone: String?
     var iata: String?
@@ -79,20 +79,20 @@ struct arrival: Codable{
     var actual_runway: String?
 }
 
-struct airline: Codable{
+struct airline: Codable,Hashable{
     var name: String?
     var iata: String?
     var icao: String?
 }
 
-struct flight: Codable{
+struct flight: Codable,Hashable{
     var number: String?
     var iata: String?
     var icao: String?
     var codeshared: flightsub?
 }
 
-struct flightsub: Codable{
+struct flightsub: Codable,Hashable{
     var airline_name: String?
     var airline_iata: String?
     var airline_icao: String?
@@ -101,14 +101,14 @@ struct flightsub: Codable{
     var flight_icao: String?
 }
 
-struct aircraft: Codable{
+struct aircraft: Codable,Hashable{
     var registration: String?
     var iata: String?
     var icao: String?
     var icao24: String?
 }
 
-struct live: Codable{
+struct live: Codable,Hashable{
     var updated: String?
     var latitude: Double?
     var longitude: Double?
