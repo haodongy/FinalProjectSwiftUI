@@ -32,6 +32,17 @@ struct FlightDetailView: View {
                 FlightDetailInfoView(flightInfo: flightInfo,flightInfo1: self.flightInfo1, flightDepDesInfo: self.flightDepDesInfo)
                 FlightDetailInfoAnotherView(flightInfo1: self.flightInfo1, flightDepDesInfo: self.flightDepDesInfo)
                 
+                ZStack {
+                    LREdgeCutShapeView()
+                        .fill(Color(UIColor.tertiarySystemBackground), style: FillStyle(eoFill: false, antialiased: false))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 24.0)
+                    LineShape()
+                        .stroke(Color(uiColor: .lightGray), style: StrokeStyle(lineWidth: 1.0, dash: [5]))
+                        .frame(height: 1.0)
+                        .padding(.horizontal, 20.0)
+                }
+                
                 Button{
                     showingDepartureMap.toggle()
                 }label: {
@@ -48,6 +59,17 @@ struct FlightDetailView: View {
                     DepartureAirportMapView(flightDepDesInfo: self.flightDepDesInfo)
                 }
                 
+                ZStack {
+                    LREdgeCutShapeView()
+                        .fill(Color(UIColor.tertiarySystemBackground), style: FillStyle(eoFill: false, antialiased: false))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 24.0)
+                    LineShape()
+                        .stroke(Color(uiColor: .lightGray), style: StrokeStyle(lineWidth: 1.0, dash: [5]))
+                        .frame(height: 1.0)
+                        .padding(.horizontal, 20.0)
+                }
+                
                 Button{
                     showingArriveMap.toggle()
                 }label: {
@@ -62,6 +84,30 @@ struct FlightDetailView: View {
                 }
                 .fullScreenCover(isPresented: $showingArriveMap){
                     ArriveAirportMapView(flightDepDesInfo: self.flightDepDesInfo)
+                }
+                
+                ZStack {
+                    LREdgeCutShapeView()
+                        .fill(Color(UIColor.tertiarySystemBackground), style: FillStyle(eoFill: false, antialiased: false))
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 24.0)
+                    LineShape()
+                        .stroke(Color(uiColor: .lightGray), style: StrokeStyle(lineWidth: 1.0, dash: [5]))
+                        .frame(height: 1.0)
+                        .padding(.horizontal, 20.0)
+                }
+                
+                Button{
+                    
+                }label: {
+                    HStack {
+                        Spacer()
+                        Text("ADD TO FAVORIATE")
+                            .foregroundColor(.white)
+                            .padding(.vertical, 10)
+                            .font(.system(size: 14, weight: .semibold))
+                        Spacer()
+                    }.background(Color.yellow)
                 }
                 
             }
