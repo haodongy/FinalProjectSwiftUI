@@ -35,8 +35,8 @@ class DB_Manger{
     	
     init(){
         do{
-            let path:String = "/Users/sitaowang/Documents"
-            db = try Connection("\(path)/global_airports_sqlite.sqlite3")
+            let path:String = "/Users/haodongyang/syracuseCIS/CIS651"
+            db = try Connection("\(path)/global_airports_sqlite.db")
             
             airportInfo = Table("airports")
             id = Expression<Int64>("id")

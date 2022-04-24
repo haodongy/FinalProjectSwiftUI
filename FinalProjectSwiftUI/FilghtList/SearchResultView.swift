@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchResultView: View {
     @State var flightList: [FlightInfo]
     @ObservedObject var flightResult: FlightDownloadManager = FlightDownloadManager()
-    @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
+    @ObservedObject var flighDepDesInfo: FlightDepDesInfo
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -21,14 +21,15 @@ struct SearchResultView: View {
                     Section {
 
                         ForEach(flightResult.flightInfo, id: \.self){ flightInfo1 in
-                            
-                            FlightListRowView(flightInfo: sampleFlightData[0], flightInfo1: flightInfo1)
+                            NavigationLink(destination: FlightDetailView(flightInfo: sampleFlightData[0], flightInfo1: flightInfo1, flightDepDesInfo: self.flighDepDesInfo)){
+                                FlightListRowView(flightInfo: sampleFlightData[0], flightInfo1: flightInfo1)
+                            }
                         }
-                        .onAppear(){
-                            flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
-                        }
-                        
+
                     }
+                }
+                .onAppear(){
+                    flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
                 }
                 Button("Back") {
                     dismiss()

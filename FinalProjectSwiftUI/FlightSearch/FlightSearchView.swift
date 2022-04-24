@@ -71,7 +71,7 @@ struct FlightSearchView: View {
                     }
                     .myButtonStyle()
                     .fullScreenCover(isPresented: $showingSearchResult){
-                        SearchResultView(flightList: sampleFlightData, flighDepDesInfo: flighDepDesInfo)
+                        SearchResultView(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo)
                     }
                 }
             }

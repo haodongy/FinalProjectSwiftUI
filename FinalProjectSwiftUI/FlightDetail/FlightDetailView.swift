@@ -12,6 +12,8 @@ struct FlightDetailView: View {
     @State private var isShowModal = false
     @State var flightInfo1: FlightInfo1
     @State var flightDepDesInfo: FlightDepDesInfo
+    @State var showingDepartureMap = false
+    @State var showingArriveMap = false
     
     var body: some View {
         ScrollView {
@@ -27,7 +29,41 @@ struct FlightDetailView: View {
                         .frame(height: 1.0)
                         .padding(.horizontal, 20.0)
                 }
-                FlightDetailInfoView(flightInfo: flightInfo)
+                FlightDetailInfoView(flightInfo: flightInfo,flightInfo1: self.flightInfo1, flightDepDesInfo: self.flightDepDesInfo)
+                FlightDetailInfoAnotherView(flightInfo1: self.flightInfo1, flightDepDesInfo: self.flightDepDesInfo)
+                
+                Button{
+                    showingDepartureMap.toggle()
+                }label: {
+                    HStack {
+                        Spacer()
+                        Text("Departure Airport Location Map")
+                            .foregroundColor(.white)
+                            .padding(.vertical, 10)
+                            .font(.system(size: 14, weight: .semibold))
+                        Spacer()
+                    }.background(Color.yellow)
+                }
+                .fullScreenCover(isPresented: $showingDepartureMap){
+                    DepartureAirportMapView(flightDepDesInfo: self.flightDepDesInfo)
+                }
+                
+                Button{
+                    showingArriveMap.toggle()
+                }label: {
+                    HStack {
+                        Spacer()
+                        Text("Arrive Airport Location Map")
+                            .foregroundColor(.white)
+                            .padding(.vertical, 10)
+                            .font(.system(size: 14, weight: .semibold))
+                        Spacer()
+                    }.background(Color.blue)
+                }
+                .fullScreenCover(isPresented: $showingArriveMap){
+                    ArriveAirportMapView(flightDepDesInfo: self.flightDepDesInfo)
+                }
+                
             }
             .padding(.all, 20.0)
         }

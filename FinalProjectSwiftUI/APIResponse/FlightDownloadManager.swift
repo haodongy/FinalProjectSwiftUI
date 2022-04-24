@@ -21,7 +21,7 @@ final class FlightDownloadManager: ObservableObject{
     
     private func getFlight(FlightURL: FlightURL, dep: String?, arr: String?){
         var url: String{
-            "\(FlightURL.urlString)&dep_icao=ADL&arr_icao=CNS"
+            "\(FlightURL.urlString)&dep_icao=\(dep ?? "")&arr_icao=\(arr ?? "")"
         }
         NetworkManager<FlightResponse>.fetch(from: url){ (result) in
             switch result {
