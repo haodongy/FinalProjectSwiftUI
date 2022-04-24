@@ -15,8 +15,8 @@ struct PersonalFavoriteView: View {
     var body: some View {
         VStack{
             List{
-                ForEach(favoriateInfoModel.favoriates){favoriate in
-                    FavoriateFlightDetailTopView(departure_icao: favoriate.departure_icao ?? "", departureAirport: favoriate.departureAirport ?? "", arrive_icao: favoriate.arrive_icao ?? "", arriveAirport: favoriate.arriveAirport ?? "", flightNumber: favoriate.flightNumber ?? "")
+                ForEach(favoriateInfoModel.favoriates, id:\.flightNumber){favoriate in
+                    FavoriateFlightDetailTopView(favoriate: favoriate)
                 }
             }.onAppear(){
                 favoriateInfoModel.getFavoriateInfo(uid: FirebaseManager.shared.auth.currentUser?.uid ?? "")
@@ -33,18 +33,14 @@ struct PersonalFavoriteView: View {
 }
 
 struct FavoriateFlightDetailTopView: View {
-    @State var departure_icao: String
-    @State var departureAirport: String
-    @State var arrive_icao: String
-    @State var arriveAirport:String
-    @State var flightNumber: String
+    @State var favoriate: FavoriateInfo
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(self.departure_icao)
+                Text(self.favoriate.departure_icao ?? "UNKNOWN")
                     .font(.custom("Futura-Medium", size: 20.0, relativeTo: .title3))
-                Text(self.departureAirport)
+                Text(self.favoriate.departureAirport ?? "UNKNOWN")
                     .font(.caption2)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
@@ -73,16 +69,16 @@ struct FavoriateFlightDetailTopView: View {
                         .fill(Color.teal)
                         .frame(width: 6.0, height: 6.0)
                 }
-                Text(self.flightNumber)
+                Text(self.favoriate.flightNumber ?? "UNKNOWN")
                     .font(.caption)
                     .fontWeight(.semibold)
             }
             .offset(x: .zero, y: 4.0)
             Spacer()
             VStack(alignment: .trailing) {
-                Text(self.arrive_icao)
+                Text(self.favoriate.arrive_icao ?? "UNKNOWN")
                     .font(.custom("Futura-Medium", size: 20.0, relativeTo: .title3))
-                Text(self.arriveAirport)
+                Text(self.favoriate.arriveAirport ?? "UNKNOWN")
                     .font(.caption2)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
