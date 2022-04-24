@@ -16,6 +16,7 @@
 		BC3290D32802192F0039842A /* FlightDepDesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3290D22802192F0039842A /* FlightDepDesInfo.swift */; };
 		BC491D3C280D0F8100BA0090 /* FlightSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC491D3B280D0F8000BA0090 /* FlightSearchView.swift */; };
 		BC491D3E280D0FD600BA0090 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC491D3D280D0FD600BA0090 /* HomeTabView.swift */; };
+		BC54672D281502350092FA96 /* FavoriateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54672C281502350092FA96 /* FavoriateInfo.swift */; };
 		BC6E3A2427F92C7300D7FEF2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */; };
 		BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */; };
 		BC6E3A2827F934D800D7FEF2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6E3A2727F934D800D7FEF2 /* MapView.swift */; };
@@ -74,6 +75,7 @@
 		BC3290D22802192F0039842A /* FlightDepDesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDepDesInfo.swift; sourceTree = "<group>"; };
 		BC491D3B280D0F8000BA0090 /* FlightSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSearchView.swift; sourceTree = "<group>"; };
 		BC491D3D280D0FD600BA0090 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		BC54672C281502350092FA96 /* FavoriateInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriateInfo.swift; sourceTree = "<group>"; };
 		BC6E3A2327F92C7300D7FEF2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BC6E3A2527F9335C00D7FEF2 /* AdmitLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmitLoginView.swift; sourceTree = "<group>"; };
 		BC6E3A2727F934D800D7FEF2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				BC6E3A2B27F9F35600D7FEF2 /* FlightInfo.swift */,
 				BC3290D22802192F0039842A /* FlightDepDesInfo.swift */,
 				BCE19B19280CF97400B41667 /* Permission.swift */,
+				BC54672C281502350092FA96 /* FavoriateInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				BCDC1710280CC5240025DD0D /* CurrentUserFetch.swift in Sources */,
 				BC6E3A2627F9335C00D7FEF2 /* AdmitLoginView.swift in Sources */,
 				BCDC170E280CC3CD0025DD0D /* FirebaseManger.swift in Sources */,
+				BC54672D281502350092FA96 /* FavoriateInfo.swift in Sources */,
 				FD5DD8A327F9E342007A7F43 /* SearchResult.swift in Sources */,
 				BC491D3C280D0F8100BA0090 /* FlightSearchView.swift in Sources */,
 				BC6E3A2827F934D800D7FEF2 /* MapView.swift in Sources */,
