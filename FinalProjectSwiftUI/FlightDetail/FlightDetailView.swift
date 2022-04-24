@@ -98,7 +98,7 @@ struct FlightDetailView: View {
                 }
                 
                 Button{
-                    
+                    pushFavoriate()
                 }label: {
                     HStack {
                         Spacer()
@@ -113,6 +113,86 @@ struct FlightDetailView: View {
             }
             .padding(.all, 20.0)
         }
+    }
+    
+    private func getTime() -> String{
+        let dateFormatter = ISO8601DateFormatter()
+        let DepartureDate = dateFormatter.date(from:flightInfo1.departure?.scheduled ?? "")!
+        let ArriveDate = dateFormatter.date(from:flightInfo1.arrival?.scheduled ?? "")!
+        let diffComponents = Calendar.current.dateComponents([.hour,.minute], from: DepartureDate, to: ArriveDate)
+        let hours = diffComponents.hour
+        let minute = diffComponents.minute
+        if minute ?? 0 >= 10{
+            return "\(hours ?? 0)H \(minute ?? 0)M"
+        }else{
+            return "\(hours ?? 0)H 0\(minute ?? 0)M"
+        }
+        //return ""
+    }
+    
+    private func getDepatureTime() -> String{
+        let dateFormatter = ISO8601DateFormatter()
+        let DepartureDate = dateFormatter.date(from:flightInfo1.departure?.scheduled ?? "")!
+        let diffComponents = Calendar.current.dateComponents([.hour,.minute], from: DepartureDate)
+        let hours = diffComponents.hour
+        let minute = diffComponents.minute
+        if minute ?? 0 >= 10{
+            return "\(hours ?? 0): \(minute ?? 0)"
+        }else{
+            return "\(hours ?? 0): 0\(minute ?? 0)"
+        }
+    }
+    
+    private func getArriveTime() -> String{
+        let dateFormatter = ISO8601DateFormatter()
+        let ArriveDate = dateFormatter.date(from:flightInfo1.arrival?.scheduled ?? "")!
+        let diffComponents = Calendar.current.dateComponents([.hour,.minute], from: ArriveDate)
+        let hours = diffComponents.hour
+        let minute = diffComponents.minute
+        if minute ?? 0 >= 10{
+            return "\(hours ?? 0): \(minute ?? 0)"
+        }else{
+            return "\(hours ?? 0): 0\(minute ?? 0)"
+        }
+    }
+    
+    private func pushFavoriate(){
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        /*
+        let favoriateData = ["departure_icao": flightInfo1.departure?.icao ?? "",
+                             "departureAirport": flightInfo1.departure?.airport ?? "",
+                             "flight duration": getTime(),
+                             "arrive_icao": flightInfo1.arrival?.icao ?? "",
+                             "arriveAirport": flightInfo1.arrival?.airport ?? "",
+                             "FLIGHT NUM": flightInfo1.flight?.icao ?? "",
+                             "DEPARTURE TERMINAL": flightInfo1.departure?.terminal ?? "Unknown"]
+        let favoriateData1= [
+                             "DEPARTURE GATE": flightInfo1.departure?.gate ?? "Unknown",
+                             "ARRIVE TERMINAL": flightInfo1.arrival?.terminal ?? "Unknown",
+                             "ARRIVE GATE": flightInfo1.arrival?.gate ?? "Unknown",
+                             "DATE": flightInfo1.flight_date ?? "",
+                             "DEPARTURE TIME": getDepatureTime(),
+                             "ARRIVE TIME": getArriveTime(),
+                             "DEPARTURE AIRPORT": flightInfo1.departure?.airport ?? "",
+                             "ARRIVE AIRPORT": flightInfo1.arrival?.airport ?? "",
+                             "DEPARTURE CITY": flightDepDesInfo.departureInfo.city ?? "",
+                             "ARRIVE CITY": flightDepDesInfo.destinationInfo.city ?? "" ]
+         */
+        let favoriate = ["uid": uid,
+                         "departure_icao": flightInfo1.departure?.icao ?? "",
+                         "departureAirport": flightInfo1.departure?.airport ?? "",
+                         "arrive_icao": flightInfo1.arrival?.icao ?? "",
+                         "arriveAirport": flightInfo1.arrival?.airport ?? "",
+                         "FLIGHT NUM": flightInfo1.flight?.icao ?? ""]
+        
+        FirebaseManager.shared.firestore.collection("favoriate").document(flightInfo1.flight?.icao ?? "").setData(favoriate){error in
+            if let error = error{
+                print("Error writing document: \(error)")
+            }else{
+                print("Document successfully written!")
+            }
+        }
+    
     }
 }
 
