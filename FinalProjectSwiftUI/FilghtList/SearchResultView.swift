@@ -31,6 +31,9 @@ struct SearchResultView: View {
                 .onAppear(){
                     flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
                 }
+                .refreshable {
+                    flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
+                }
                 Button("Back") {
                     dismiss()
                 }

@@ -46,6 +46,7 @@ struct FlightDetailView: View {
                 Button{
                     showingDepartureMap.toggle()
                 }label: {
+                    /*
                     HStack {
                         Spacer()
                         Text("Departure Airport Location Map")
@@ -54,6 +55,10 @@ struct FlightDetailView: View {
                             .font(.system(size: 14, weight: .semibold))
                         Spacer()
                     }.background(Color.yellow)
+                     */
+                    HStack(spacing: .zero) {
+                        BlockView(key: "Map Location", value: flightInfo1.departure?.airport ?? "", rows: 1)
+                    }
                 }
                 .fullScreenCover(isPresented: $showingDepartureMap){
                     DepartureAirportMapView(flightDepDesInfo: self.flightDepDesInfo)
@@ -73,6 +78,7 @@ struct FlightDetailView: View {
                 Button{
                     showingArriveMap.toggle()
                 }label: {
+                    /*
                     HStack {
                         Spacer()
                         Text("Arrive Airport Location Map")
@@ -81,6 +87,10 @@ struct FlightDetailView: View {
                             .font(.system(size: 14, weight: .semibold))
                         Spacer()
                     }.background(Color.blue)
+                     */
+                    HStack(spacing: .zero) {
+                        BlockView(key: "Map Location", value: flightInfo1.arrival?.airport ?? "", rows: 1)
+                    }
                 }
                 .fullScreenCover(isPresented: $showingArriveMap){
                     ArriveAirportMapView(flightDepDesInfo: self.flightDepDesInfo)
@@ -100,6 +110,7 @@ struct FlightDetailView: View {
                 Button{
                     pushFavoriate()
                 }label: {
+                    /*
                     HStack {
                         Spacer()
                         Text("ADD TO FAVORIATE")
@@ -108,6 +119,10 @@ struct FlightDetailView: View {
                             .font(.system(size: 14, weight: .semibold))
                         Spacer()
                     }.background(Color.yellow)
+                     */
+                    HStack(spacing: .zero) {
+                        BlockView(key: "", value: "ADD TO FAVORIATE", rows: 1)
+                    }
                 }
                 
             }
