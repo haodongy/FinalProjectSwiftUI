@@ -15,9 +15,15 @@ struct FlightSearchView: View {
     @State private var showingSearchResult = false
     
     var body: some View {
-
+        
         NavigationView{
             VStack{
+                Image("images")
+                    .clipShape(Circle())
+                    .frame(width: 15.0, height: 15.0)
+                    .shadow(radius: 7)
+                    .offset(y: -90)
+
                 VStack(alignment:.leading){
                     Button(action: {
                         self.showingSearchDep.toggle()
@@ -28,12 +34,16 @@ struct FlightSearchView: View {
                             if flighDepDesInfo.departureInfo.name != nil{
                                 Text("  \(CityName(airport:flighDepDesInfo.departureInfo))")
                             }
-
                         }
+                        .padding()
+                        Spacer()
                     }
                     .sheet(isPresented: $showingSearchDep){
                         AirportSearchView(airportInfo: self.$flighDepDesInfo.departureInfo)
                     }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.roundedRectangle(radius: 15))
+                    .frame(maxWidth: .infinity)
                     .padding()
                     
                     Button(action: {
@@ -46,10 +56,15 @@ struct FlightSearchView: View {
                                 Text("  \(CityName(airport:flighDepDesInfo.destinationInfo))")
                             }
                         }
+                        .padding()
+                        Spacer()
                     }
                     .sheet(isPresented: $showingSearchDes){
                         AirportSearchView(airportInfo: self.$flighDepDesInfo.destinationInfo)
                     }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.roundedRectangle(radius: 15))
+                    .frame(maxWidth: .infinity)
                     .padding()
                     
                     DatePicker(
@@ -59,20 +74,23 @@ struct FlightSearchView: View {
                     )
                 }
                 Spacer()
-                HStack(alignment:.center){
-                    Button {
-                        self.showingSearchResult.toggle()
-                    } label: {
-                        Text("search")
-                            .font(Font.body.bold())
-                            .padding()
-                            .foregroundColor(Color.primary)
-                            .colorInvert()
-                    }
-                    .myButtonStyle()
-                    .fullScreenCover(isPresented: $showingSearchResult){
-                        SearchResultView(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo)
-                    }
+                
+                Button {
+                    self.showingSearchResult.toggle()
+                } label: {
+                    Text("search")
+                        .font(Font.body.bold())
+                        .padding()
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.roundedRectangle(radius: 15))
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .padding()
+                .fullScreenCover(isPresented: $showingSearchResult){
+                    SearchResultView(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo)
                 }
             }
         }
