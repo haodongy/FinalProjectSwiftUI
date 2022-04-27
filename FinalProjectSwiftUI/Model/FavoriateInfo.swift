@@ -41,7 +41,6 @@ class FavoriateInfoModel: ObservableObject{
                 let arriveAirport_f = data["arriveAirport"] as? String ?? ""
                 let flightNumber_f = data["FLIGHT NUM"] as? String ?? ""
                 
-                
                 return FavoriateInfo(id: id_f, departure_icao: departure_icao_f, departureAirport: departureAirport_f, arrive_icao: arrive_icao_f, arriveAirport: arriveAirport_f, flightNumber: flightNumber_f)
             }
             print(self.favoriates)

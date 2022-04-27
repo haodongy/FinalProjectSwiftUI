@@ -15,12 +15,25 @@ struct PersonalFavoriteView: View {
     var body: some View {
         VStack{
             List{
-                ForEach(favoriateInfoModel.favoriates, id:\.flightNumber){favoriate in
-                    FavoriateFlightDetailTopView(favoriate: favoriate)
+                Section{
+                    ForEach(favoriateInfoModel.favoriates, id:\.flightNumber){favoriate in
+                        FavoriateFlightDetailTopView(favoriate: favoriate)
+                    }
+                    .onDelete(perform: fundelete)
+                    /*
+                    .onDelete{ (indexSet) in
+                        self.favoriateInfoModel.favoriates.remove(atOffsets: indexSet)
+                    }
+                     */
                 }
-            }.onAppear(){
+            }
+            .onAppear(){
                 favoriateInfoModel.getFavoriateInfo(uid: FirebaseManager.shared.auth.currentUser?.uid ?? "")
             }
+            .refreshable {
+                favoriateInfoModel.getFavoriateInfo(uid: FirebaseManager.shared.auth.currentUser?.uid ?? "")
+            }
+            
             Spacer()
             Button("Back") {
                 dismiss()
@@ -30,6 +43,24 @@ struct PersonalFavoriteView: View {
             .background(.white)
         }
     }
+    
+    
+    private func fundelete(at indexSet: IndexSet){
+        indexSet.forEach{ index in
+            let favoriate_1 = self.favoriateInfoModel.favoriates[index]
+            FirebaseManager.shared.firestore.collection("favoriate").whereField("FLIGHT NUM", isEqualTo: favoriate_1.flightNumber ?? "").whereField("uid", isEqualTo: FirebaseManager.shared.auth.currentUser?.uid ?? "").getDocuments{ (querySnapshot, err) in
+                if let err = err{
+                    print("Error getting documents: \(err)")
+                }else{
+                    for document in querySnapshot!.documents {
+                          document.reference.delete()
+                    }
+                }
+                
+            }
+        }
+    }
+     
 }
 
 struct FavoriateFlightDetailTopView: View {
@@ -92,7 +123,7 @@ struct FavoriateFlightDetailTopView: View {
         .cornerRadius(12.0, corners: [.topLeft, .topRight])
     }
     
-
+    
 }
 
 struct PersonalFavoriteView_Previews: PreviewProvider {
