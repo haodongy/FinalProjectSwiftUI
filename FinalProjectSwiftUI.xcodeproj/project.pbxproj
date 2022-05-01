@@ -90,6 +90,7 @@
 		BC8A01F72814E39B0040014B /* FlightDetailInfoAnotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailInfoAnotherView.swift; sourceTree = "<group>"; };
 		BC8A01F92814E5C50040014B /* DepartureAirportMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureAirportMapView.swift; sourceTree = "<group>"; };
 		BC8A01FB2814E6820040014B /* ArriveAirportMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArriveAirportMapView.swift; sourceTree = "<group>"; };
+		BCD075D5281E0A340005BF30 /* global_airports_sqlite.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = global_airports_sqlite.db; sourceTree = "<group>"; };
 		BCD8636727F8C8060010403F /* FinalProjectSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD8636A27F8C8060010403F /* FinalProjectSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectSwiftUIApp.swift; sourceTree = "<group>"; };
 		BCD8636C27F8C8060010403F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -224,6 +225,14 @@
 			path = FilghtList;
 			sourceTree = "<group>";
 		};
+		BCD075D4281E0A1E0005BF30 /* Database File */ = {
+			isa = PBXGroup;
+			children = (
+				BCD075D5281E0A340005BF30 /* global_airports_sqlite.db */,
+			);
+			path = "Database File";
+			sourceTree = "<group>";
+		};
 		BCD8635E27F8C8060010403F = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				BC3290C22801D3C50039842A /* Info.plist */,
+				BCD075D4281E0A1E0005BF30 /* Database File */,
 				FDDBB544280EA05A002B766F /* APIResponse */,
 				BC491D3A280D0F6F00BA0090 /* FlightSearch */,
 				BCDC170C280CC3AB0025DD0D /* FirebaseManger */,
