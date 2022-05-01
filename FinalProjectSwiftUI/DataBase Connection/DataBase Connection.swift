@@ -7,6 +7,7 @@
 
 import Foundation
 import SQLite
+import SQLite3
 
 class DB_Manger{
     private var db: Connection!
@@ -35,8 +36,12 @@ class DB_Manger{
     	
     init(){
         do{
-            let path:String = "/Users/haodongyang/syracuseCIS/CIS651"
+            let path:String = "/Users/haodongyang/syracuseCIS/CIS651/FinalProjectSwiftUI/FinalProjectSwiftUI/Database File"
             db = try Connection("\(path)/global_airports_sqlite.db")
+            
+            //if let audioFileURL = Bundle.main.path(forResource: "global_airports_sqlite", ofType: "db") {
+            //    print("this is the \(audioFileURL)")
+            //}
             
             airportInfo = Table("airports")
             id = Expression<Int64>("id")
