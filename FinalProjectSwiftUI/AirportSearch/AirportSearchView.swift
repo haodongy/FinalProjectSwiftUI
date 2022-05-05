@@ -55,7 +55,8 @@ struct AirportSearchView: View {
             }
             .navigationTitle("Airport")
         }.onAppear(perform:{
-            self.AirportInfoModels = DB_Manger().getAirports()
+            self.AirportInfoModels = new_airports
+            //self.AirportInfoModels = DB_Manger().getAirports()
         })
     }
     
