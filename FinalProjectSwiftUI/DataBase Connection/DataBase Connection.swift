@@ -11,6 +11,7 @@ import SQLite3
 
 class DB_Manger{
     private var db: Connection!
+    //static var db: OpaquePointer? = nil
     private var airportInfo: Table!
     var id: Expression<Int64>!
     var icao_code: Expression<String>!
@@ -39,9 +40,20 @@ class DB_Manger{
             let path:String = "/Users/haodongyang/syracuseCIS/CIS651/FinalProjectSwiftUI/FinalProjectSwiftUI/Database File"
             db = try Connection("\(path)/global_airports_sqlite.db")
             
-            //if let audioFileURL = Bundle.main.path(forResource: "global_airports_sqlite", ofType: "db") {
-            //    print("this is the \(audioFileURL)")
-            //}
+            /*
+            let bundleDatabasePath = Bundle.main.resourceURL?.appendingPathComponent("global_airports_sqlite.db").path
+            db = try Connection(bundleDatabasePath ?? "")
+            print("Database path is: \(bundleDatabasePath ?? "Unknown")")
+            */
+            
+            /*
+            let documentDirectory = try FileManager.default.url(for: .developerDirectory, in: .allDomainsMask, appropriateFor: nil, create: true)
+            let fileUrl = documentDirectory.appendingPathComponent("global_airports_sqlite").appendingPathExtension("db")
+            db = try Connection(fileUrl.path)
+            print("Database initialized at path \(fileUrl.path)")
+             */
+            
+
             
             airportInfo = Table("airports")
             id = Expression<Int64>("id")
