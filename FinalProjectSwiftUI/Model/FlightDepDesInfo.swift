@@ -7,6 +7,10 @@
 
 import Foundation
 
+class FlightDate: ObservableObject{
+    @Published var dateString: String = ""
+}
+
 class FlightDepDesInfo: ObservableObject{
     @Published var departureInfo: AirportInfo = AirportInfo()
     @Published var destinationInfo: AirportInfo = AirportInfo()
