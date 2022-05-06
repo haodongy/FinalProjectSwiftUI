@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct FlightSearchView: View {
-    @State private var date = Date()
+    @State public var date = Date()
+    @State public var dateString: String = ""
     @ObservedObject var flighDepDesInfo: FlightDepDesInfo = FlightDepDesInfo()
+    @ObservedObject var flightDate: FlightDate = FlightDate()
     @State private var showingSearchDep = false
     @State private var showingSearchDes = false
     @State private var showingSearchResult = false
+    let formatter = DateFormatter()
     
     var body: some View {
         
@@ -71,12 +74,23 @@ struct FlightSearchView: View {
                         "Select dates",
                         selection: $date,
                         displayedComponents: [.date]
+                        
+                        
                     )
                 }
                 Spacer()
                 
                 Button {
                     self.showingSearchResult.toggle()
+                    
+                    //let formatter = DateFormatter()
+                    formatter.timeZone = TimeZone.current
+                    formatter.dateFormat = "yyyy-MM-dd"
+                    dateString = formatter.string(from: date)
+                    flightDate.dateString = dateString
+                    
+                    
+                    
                 } label: {
                     Text("search")
                         .font(Font.body.bold())
@@ -90,7 +104,16 @@ struct FlightSearchView: View {
                 .background(Color.blue)
                 .padding()
                 .fullScreenCover(isPresented: $showingSearchResult){
-                    SearchResultView(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo)
+                    
+                    if(formatter.string(from: date)==formatter.string(from: Date())){
+                        SearchResultView(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo)
+                    }
+                    else{
+                        
+                        SearchResultViewH(flightList: sampleFlightData, flighDepDesInfo: self.flighDepDesInfo, dateString: self.dateString)
+                    
+                    }
+                    
                 }
             }
         }
@@ -103,3 +126,5 @@ struct FlightSearchView_Previews: PreviewProvider {
         FlightSearchView()
     }
 }
+
+
