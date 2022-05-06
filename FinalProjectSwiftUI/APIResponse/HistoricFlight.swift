@@ -44,7 +44,7 @@ class HistoricFlight: ObservableObject{
             print(error.localizedDescription)
         }
         for item in flightInfo{
-            if (item.departure?.iata == dep) && (item.arrival?.iata == arr) && (item.flight_date == date) {
+            if (item.departure?.icao == dep) && (item.arrival?.icao == arr) && (item.flight_date == date) {
                 flightRes.append(item)
             }
         }

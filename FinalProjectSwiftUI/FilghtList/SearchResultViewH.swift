@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct SearchResultView: View {
+struct SearchResultViewH: View {
     @State var flightList: [FlightInfo]
-    @ObservedObject var flightResult: FlightDownloadManager = FlightDownloadManager()
     @ObservedObject var his : HistoricFlight = HistoricFlight()
     @ObservedObject var flighDepDesInfo: FlightDepDesInfo
+    var dateString: String
+    
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -21,7 +22,7 @@ struct SearchResultView: View {
                     TicketListDifferentView()
                     Section {
                         //this is the navigation link view
-                        ForEach(flightResult.flightInfo, id: \.self){ flightInfo1 in
+                        ForEach(his.flightRes, id: \.self){ flightInfo1 in
                             NavigationLink(destination: FlightDetailView(flightInfo: sampleFlightData[0], flightInfo1: flightInfo1, flightDepDesInfo: self.flighDepDesInfo)){
                                 FlightListRowView(flightInfo: sampleFlightData[0], flightInfo1: flightInfo1)
                             }
@@ -30,10 +31,13 @@ struct SearchResultView: View {
                     }
                 }
                 .onAppear(){
-                    flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
+                    
+                    his.getHistoryFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code, date:dateString)
+                    //flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
                 }
                 .refreshable {
-                    flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
+                    //his.getHistoryFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code, date:dateString)
+                    //flightResult.getRealTimeFlight(dep: flighDepDesInfo.departureInfo.icao_code, arr: flighDepDesInfo.destinationInfo.icao_code)
                 }
                 Button("Back") {
                     dismiss()
@@ -48,9 +52,9 @@ struct SearchResultView: View {
     }
 }
 
-struct SearchResultView_Previews: PreviewProvider {
+struct SearchResultViewH_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultView(flightList: sampleFlightData,flighDepDesInfo: FlightDepDesInfo())
+        SearchResultViewH(flightList: sampleFlightData,flighDepDesInfo: FlightDepDesInfo(), dateString: FlightDate().dateString)
     }
 }
 
