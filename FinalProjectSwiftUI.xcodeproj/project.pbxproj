@@ -65,6 +65,7 @@
 		FDDBB54C280EA05A002B766F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDBB547280EA05A002B766F /* API.swift */; };
 		FDDBB54D280EA05A002B766F /* FlightURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDBB548280EA05A002B766F /* FlightURL.swift */; };
 		FDDBB54E280EA05A002B766F /* RealTimeFlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDBB549280EA05A002B766F /* RealTimeFlight.swift */; };
+		FDE5B9CF282569D7002E993C /* kbHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5B9CE282569D7002E993C /* kbHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		FDDBB547280EA05A002B766F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FDDBB548280EA05A002B766F /* FlightURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightURL.swift; sourceTree = "<group>"; };
 		FDDBB549280EA05A002B766F /* RealTimeFlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealTimeFlight.swift; sourceTree = "<group>"; };
+		FDE5B9CE282569D7002E993C /* kbHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				BCDC170A280CC3950025DD0D /* GoogleService-Info.plist */,
 				BCD8636E27F8C8080010403F /* Assets.xcassets */,
 				BCD8637027F8C8080010403F /* Preview Content */,
+				FDE5B9CE282569D7002E993C /* kbHelper.swift */,
 			);
 			path = FinalProjectSwiftUI;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3290D32802192F0039842A /* FlightDepDesInfo.swift in Sources */,
+				FDE5B9CF282569D7002E993C /* kbHelper.swift in Sources */,
 				BC6E3A2E27F9F3A700D7FEF2 /* FlightDetailTopView.swift in Sources */,
 				BC6E3A3327F9F75700D7FEF2 /* BlockView.swift in Sources */,
 				BCE19B1C280D00F600B41667 /* PersonalFavoriteView.swift in Sources */,
