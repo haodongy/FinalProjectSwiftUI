@@ -37,7 +37,7 @@ class DB_Manger{
     	
     init(){
         do{
-            let path:String = "/Users/haodongyang/syracuseCIS/CIS651/FinalProjectSwiftUI/FinalProjectSwiftUI/Database File"
+            let path:String = "/Users/haodongyang/syracuseCIS/CIS651/FinalProjectSwiftUI/FinalProjectSwiftUI/DataFile"
             db = try Connection("\(path)/global_airports_sqlite.db")
             
             /*

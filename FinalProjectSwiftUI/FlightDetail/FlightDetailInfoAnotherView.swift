@@ -16,9 +16,9 @@ struct FlightDetailInfoAnotherView: View {
     var body: some View {
         VStack(spacing: 16.0){
             HStack{
-                BlockView(key: "DEPARTURE AIRPORT", value: flightInfo1.departure?.airport ?? "", rows: 2)
+                BlockView(key: "DEPARTURE AIRPORT", value: flightDepDesInfo.departureInfo.name ?? "", rows: 2)
                 Divider()
-                BlockView(key: "ARRIVE AIRPORT", value: flightInfo1.arrival?.airport ?? "" , rows: 2)
+                BlockView(key: "ARRIVE AIRPORT", value: flightDepDesInfo.destinationInfo.name ?? "" , rows: 2)
             }
             
             Divider()
