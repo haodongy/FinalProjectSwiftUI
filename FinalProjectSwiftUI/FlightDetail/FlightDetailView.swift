@@ -11,7 +11,7 @@ struct FlightDetailView: View {
     let flightInfo: FlightInfo
     @State private var isShowModal = false
     @State var flightInfo1: FlightInfo1
-    @State var flightDepDesInfo: FlightDepDesInfo
+    @ObservedObject var flightDepDesInfo: FlightDepDesInfo
     @State var showingDepartureMap = false
     @State var showingArriveMap = false
     
@@ -57,7 +57,7 @@ struct FlightDetailView: View {
                     }.background(Color.yellow)
                      */
                     HStack(spacing: .zero) {
-                        BlockView(key: "Map Location", value: flightInfo1.departure?.airport ?? "", rows: 1)
+                        BlockView(key: "Map Location", value: flightDepDesInfo.departureInfo.name ?? "", rows: 1)
                     }
                 }
                 .fullScreenCover(isPresented: $showingDepartureMap){
@@ -89,7 +89,7 @@ struct FlightDetailView: View {
                     }.background(Color.blue)
                      */
                     HStack(spacing: .zero) {
-                        BlockView(key: "Map Location", value: flightInfo1.arrival?.airport ?? "", rows: 1)
+                        BlockView(key: "Map Location", value: flightDepDesInfo.destinationInfo.name ?? "", rows: 1)
                     }
                 }
                 .fullScreenCover(isPresented: $showingArriveMap){
@@ -195,10 +195,12 @@ struct FlightDetailView: View {
          */
         let favoriate = ["uid": uid,
                          "departure_icao": flightInfo1.departure?.icao ?? "",
-                         "departureAirport": flightInfo1.departure?.airport ?? "",
+                         "departureAirport": flightDepDesInfo.departureInfo.name ?? "",
                          "arrive_icao": flightInfo1.arrival?.icao ?? "",
-                         "arriveAirport": flightInfo1.arrival?.airport ?? "",
+                         "arriveAirport": flightDepDesInfo.destinationInfo.name ?? "",
                          "FLIGHT NUM": flightInfo1.flight?.icao ?? ""]
+        
+        print(favoriate)
         
         FirebaseManager.shared.firestore.collection("favoriate").document(flightInfo1.flight?.icao ?? "").setData(favoriate){error in
             if let error = error{
